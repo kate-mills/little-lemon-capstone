@@ -1,13 +1,10 @@
 import * as React from 'react'
 
-import logo from '../assets/logo.svg'
-
 import { websiteLinks } from '../constants/links'
 
 const Nav = () => {
   return (
     <nav>
-      <img src={logo} alt="Little Lemon Logo" />
       <ul>
         {websiteLinks.map(({ title, href }) => {
           return (
@@ -17,7 +14,6 @@ const Nav = () => {
           )
         })}
       </ul>
-
     </nav>
   )
 }
