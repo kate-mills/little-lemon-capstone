@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { websiteLinks, socialLinks } from '../constants/links'
 
-import logo from '../assets/footer-logo.svg'
+import logo from '../assets/logo-footer.svg'
 
 const Footer = () => {
   return (
     <footer>
       <section className="img-container">
-        <img src={logo} alt="Little Lemon Footer Logo" />
+        <img id="logo-footer" src={logo} alt="Little Lemon Footer Logo" />
       </section>
 
       <section>
