@@ -6,11 +6,15 @@ import logo from '../assets/logo-footer.svg'
 const Footer = () => {
   return (
     <footer>
-      <section className="img-container">
-        <img id="logo-footer" src={logo} alt="Little Lemon Footer Logo" />
-      </section>
-
-      <section>
+      <div>
+        <img
+          src={logo}
+          alt="Little Lemon Footer Logo"
+          width="162"
+          height="279"
+        />
+      </div>
+      <div>
         <nav>
           <ul>
             {websiteLinks.map(({ title, href }) => {
@@ -22,20 +26,17 @@ const Footer = () => {
             })}
           </ul>
         </nav>
-      </section>
-      <section>
-        <h5>Contact</h5>
+      </div>
+      <div>
+        <h5>Contact Us</h5>
         <address>
           <span>555 3rd Street</span>
           <span>San Francisco, CA</span>
-    </address>
-
-    <address>
           <a href="mailto:@example.com">contact@littlelemon.com</a>
           <a href="tel:+15555555555">(555) 555-5555</a>
         </address>
-      </section>
-      <section>
+      </div>
+      <div>
         <h5>Social Media</h5>
         <nav>
           <ul>
@@ -48,7 +49,7 @@ const Footer = () => {
             })}
           </ul>
         </nav>
-      </section>
+      </div>
     </footer>
   )
 }

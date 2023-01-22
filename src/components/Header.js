@@ -6,7 +6,7 @@ import logo from '../assets/logo.svg'
 const Header = () => {
   return (
     <header>
-      <img src={logo} alt="Little Lemon Logo" />
+      <img src={logo} alt="Little Lemon Logo" width="148"/>
       <Nav />
     </header>
   )
