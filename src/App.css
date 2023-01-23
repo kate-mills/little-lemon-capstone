@@ -1,3 +1,15 @@
+:root {
+  --clr-1-dk: #495e57;
+  --clr-1-lt: #f4ce14;
+  --clr-2-dk: #ee9972;
+  --clr-2-lt: #fbdabb;
+  --clr-3-dk: #333333;
+  --clr-3-lt: #edefee;
+  --black: #000000;
+  --white: #ffffff;
+  --ff-display: 'Markazi Text', serif;
+  --ff-main: 'Karla', sans-serif;
+}
 *,
 *::after,
 *::before {
@@ -8,61 +20,112 @@
   padding: 0;
 }
 html {
-  font-family: 'Karla', sans-serif;
+  font-family: var(--ff-main);
   font-size: 16px;
 }
 body {
+  background: var(--clr-3-lt);
   color: #333333;
-  font-family: 'Karla', sans-serif;
+  font-family: var(--ff-main);
   font-size: 1rem;
   font-weight: 400;
 }
+a {
+  text-decoration: none;
+}
+button {
+  background: var(--clr-1-lt);
+  border-radius: 1rem;
+  color: #333333;
+  font-family: var(--ff-main);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 19px;
+}
+button:hover {
+  cursor: pointer;
+}
+h1,
+h2 {
+  font-size: 64px;
+  line-height: 77px;
+  font-family: var(--ff-display);
+  font-style: normal;
+  font-weight: 500;
+  color: var(--black);
+}
+h2 {
+  font-size: 40px;
+  line-height: 48px;
+}
+h3,
+h4,
 h5 {
-  font-family: 'Karla';
+  color: #000000;
+  font-family: var(--ff-main);
   font-style: normal;
   font-weight: 800;
+}
+h3 {
   font-size: 20px;
   line-height: 23px;
-  color: #495e57;
+  text-transform: capitalize;
+}
+h4 {
+  font-size: 1rem;
+  line-height: 19px;
+}
+h5 {
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
 }
 img {
   height: auto;
 }
 li {
   display: inline-block;
-  margin-left: 1em;
+  margin: 1em;
 }
+p {
+  font-family: var(--ff-main);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 19px;
+  color: #495e57;
+}
+
+/* ---- Header ---- */
 header {
   background: #edefee;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0 10%;
 }
+
+/* ---- Main ---- */
 main {
-  min-height: 70vh;
-  background: #d9d9d9;
+  background: var(--clr-1-dk);
+  padding: 5% 10%;
+  min-height: 75vh;
 }
-a {
-  text-decoration: none;
-}
+
+/* ---- Footer --- */
 footer {
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 500;
   font-size: 20px;
   background: #edefee;
-  padding: 0 5%;
+  padding: 0 10%;
 
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: space-between;
 }
 footer > div {
-  padding: 1.75em;
-  flex: 1;
+  margin: 1.75em 1.75em 1.75em 0;
 }
 footer li {
   display: block;
@@ -77,4 +140,14 @@ address > * {
 }
 address > a {
   margin-top: 1em;
+}
+
+/* ---- Utility Classes ---- */
+.btn-hero {
+  width: 202px;
+  height: 42px;
+}
+.highlight {
+  font-weight: 500;
+  color: #495e57;
 }
