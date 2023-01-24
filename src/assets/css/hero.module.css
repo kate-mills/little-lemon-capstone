@@ -1,0 +1,40 @@
+#hero {
+  background: var(--clr-1-dk);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 406px;
+  min-width: 100%;
+  position: relative;
+}
+#hero p {
+  color: var(--clr-3-lt);
+  max-width: 25ch;
+  margin: 0 0 3em;
+  border-radius: 1rem;
+}
+.heroImgBoxText {
+  position: absolute;
+  top: 23px;
+  z-index: 2;
+}
+.heroImgBoxFood {
+  z-index: 1;
+  position: absolute;
+  top: 23px;
+  right: 15%;
+  max-height: 406px;
+  display: none;
+  .heroImgBoxText {
+    position: absolute;
+    left: 15%;
+    top: 23px;
+    z-index: 2;
+  }
+}
+@media (min-width: 768px) {
+  .heroImgBoxFood {
+    display: block;
+  }
+}

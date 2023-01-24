@@ -1,0 +1,9 @@
+#special {
+  background: var(--clr-3-lt);
+  position: relative;
+}
+
+.special_div {
+  margin-top: 5%;
+  min-height: 555px;
+}
