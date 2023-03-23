@@ -1,5 +1,6 @@
 import * as React from 'react'
 import MenuItem from './MenuItem'
+import ButtonLink from './ButtonLink'
 
 import styles from '../assets/css/specials.module.css'
 
@@ -37,9 +38,12 @@ const Specials = () => {
   return (
     <article id={styles.special}>
       <div className={styles.special_div}>
-        <h2>This weeks specials!</h2>
+        <div className={styles.special__header}>
+          <h2>This weeks specials!</h2>
+          <ButtonLink href={'/menu'} text={'Online Menu'} />
+        </div>
 
-        <div id={styles.menu_items}>
+        <div className={styles.menu_items}>
           {menu_items.map(item => {
             return <MenuItem key={item.title} {...item} />
           })}

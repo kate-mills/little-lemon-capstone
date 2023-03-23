@@ -8,19 +8,15 @@
   min-height: 310px;
   position: relative;
 }
-
 #hero p {
   color: var(--clr-3-lt);
   max-width: 25ch;
   border-radius: 1rem;
-
   font-family: 'Karla';
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
-
   color: #ffffff;
-
 }
 .heroTextWrapper {
   position: absolute;
@@ -33,6 +29,9 @@
   right: 0;
   max-height: 406px;
   display: none;
+}
+.heroTextWrapper > a {
+  margin-top: 29px;
 }
 
 @media (min-width: 768px) {

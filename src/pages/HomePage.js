@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from '../components/Hero'
-//import Specials from '../components/Specials'
+import Specials from '../components/Specials'
 //import Testimonials from '../components/Testimonials'
 
 const HomePage = () => {
@@ -19,7 +19,7 @@ const HomePage = () => {
         className="block-bg"
       >
         <div className="block">
-    {/*<Specials />*/}
+    <Specials />
         </div>
       </div>
       <div style={{ backgroundColor: 'var(--gray)' }} className="block-bg">
