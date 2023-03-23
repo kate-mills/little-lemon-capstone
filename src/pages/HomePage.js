@@ -1,7 +1,8 @@
 import React from 'react'
 import Hero from '../components/Hero'
 import Specials from '../components/Specials'
-//import Testimonials from '../components/Testimonials'
+import Testimonials from '../components/Testimonials'
+import testimonialBg from '../assets/testimonial-background.png'
 
 const HomePage = () => {
   return (
@@ -19,12 +20,18 @@ const HomePage = () => {
         className="block-bg"
       >
         <div className="block">
-    <Specials />
+          <Specials />
         </div>
       </div>
-      <div style={{ backgroundColor: 'var(--gray)' }} className="block-bg">
+      <div
+        style={{
+          backgroundImage: `url(${testimonialBg})`,
+          backgroundColor: '#f8f2ec',
+        }}
+        className="block-bg"
+      >
         <div className="block">
-    {/*<Testimonials />*/}
+          <Testimonials />
         </div>
       </div>
     </>
