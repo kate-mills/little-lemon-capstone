@@ -1,16 +1,20 @@
 :root {
-  --clr-1-dk: #495e57;
-  --clr-1-lt: #f4ce14;
-  --clr-2-dk: #ee9972;
-  --clr-2-lt: #fbdabb;
-  --clr-3-dk: #333333;
-  --clr-3-lt: #edefee;
+  --clr-primary-1: #495e57;
+  --clr-primary-2: #f4ce14;
+  --clr-secondary-1: #ee9972;
+  --clr-secondary-2: #fbdabb;
+  --clr-highlight-1: #333333;
+  --clr-highlight-2: #edefee;
+
+  --gray: #d9d9d9;
   --black: #000000;
   --white: #ffffff;
   --ff-display: 'Markazi Text', serif;
   --ff-main: 'Karla', sans-serif;
 
   --main-padding: 15%;
+
+  --max-width: 860px;
 }
 *,
 *::after,
@@ -26,73 +30,45 @@ html {
   font-size: 16px;
 }
 body {
-  background: var(--clr-3-lt);
-  color: #333333;
+  background: var(--clr-highlight-2);
+  color: var(--clr-highlight-1);
   font-family: var(--ff-main);
   font-size: 1rem;
   font-weight: 400;
-  position: relative;
 }
 a:link,
-a:visited {
-  text-transform: none;
+a:visited,
+a:hover {
   text-decoration: none;
-  font-family: var(--ff-normal);
   font-style: normal;
+  font-family: var(--ff-main);
+}
+header a {
   font-weight: 800;
-  font-size: 16px;
-  line-height: 19px;
-  color: #000000;
-  text-transform: capitalize;
-
-  display: flex;
-  align-items: center;
-}
-.btn:link,
-.btn:visited {
-  display: inline-block;
-  color: #333333;
-  background: var(--clr-1-lt);
-
-  border-radius: 5px;
-  padding: 21px 24px 20px 25px;
-  line-height: 19px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.btn.btn-reserve-a-table {
-  padding: 12px 30px 11px;
-  width: 202px;
-  height: 42px;
-  border-radius: 16px;
-}
-
-.btn:hover {
-  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1.1875rem;
 }
 h1,
 h2 {
-  font-size: 64px;
-  line-height: 77px;
+  font-size: 4rem;
+  line-height: 4.8125rem;
   font-family: var(--ff-display);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--black);
 }
 h2 {
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 2.5rem;
+  line-height: 3rem;
 }
 h3,
 h4,
 h5 {
-  color: #000000;
+  color: var(--black);
   font-family: var(--ff-main);
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
 }
 h3 {
   font-size: 20px;
@@ -106,7 +82,6 @@ h4 {
 h5 {
   font-size: 18px;
   line-height: 21px;
-  font-weight: 700;
 }
 img {
   height: auto;
@@ -114,57 +89,58 @@ img {
 li {
   display: inline-block;
   margin: 1em;
+  margin-inline-start: 0;
 }
 p {
   font-family: var(--ff-main);
   font-style: normal;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 19px;
-  color: #495e57;
+  color: var(--clr-primary-1);
 }
-
-/* ---- Header ---- */
 header {
-  background: #edefee;
+  background: var(--clr-highlight-2);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 var(--main-padding);
+  justify-content: space-between;
+  margin: 0 auto;
 }
-
-/* ---- Main ---- */
-main {
-  min-height: 75vh;
-}
-
-/* ---- Footer --- */
 footer {
-  font-size: 20px;
-  background: #edefee;
-  background: #d9d9d9;
-  padding: 0 var(--main-padding);
+  background: var(--gray);
+  padding-block: 7%;
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: space-between;
-
-  position: absolute;
-  left: 0px;
-  top: 2412px;
-  width: 100vw;
+  width: 100%;
+  padding-block-end: 10%;
 }
 footer > div {
-  margin: 1.75em 1.75em 1.75em 0;
+  margin: 1.75rem 1.75rem 0 0;
 }
 footer li {
   display: block;
   margin-block-start: 1em;
-  margin-inline-start: 0px;
+  margin-inline-start: 0;
+  margin-inline: 0;
 }
 address {
   margin-block-start: 1em;
+}
+address,
+a.footer-text {
+  font-family: var(--ff-main);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: none !important;
+  color: #000000;
+}
+footer nav:first-child li:first-child {
+  margin-top: 0;
 }
 address > * {
   display: block;
@@ -173,8 +149,12 @@ address > a {
   margin-top: 1em;
 }
 
-/* ---- Articles ----*/
-article {
-  padding: 5% var(--main-padding);
-  width: 100%;
+div.block-bg {
+  padding-inline: 5%;
+}
+@media (min-width: 768px) {
+  div.block-bg > *.block {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
 }

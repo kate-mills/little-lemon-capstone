@@ -6,11 +6,7 @@ import About from './About'
 
 const Main = () => {
   return (
-    <main>
-      <Hero />
-      <Specials />
-      <Testimonials />
-      <About />
+    <main style={{maxWidth: '860px'}}>
     </main>
   )
 }

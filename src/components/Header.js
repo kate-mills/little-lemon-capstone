@@ -6,8 +6,8 @@ import logo from '../assets/logo.svg'
 const Header = () => {
   return (
     <header>
-      <img src={logo} alt="Little Lemon Logo" width="148"/>
-      <Nav />
+      <img style={{display: 'inline-block'}}src={logo} alt="Little Lemon Logo" width="148"/>
+      <Nav style={{display: 'inline-block'}}/>
     </header>
   )
 }

@@ -7,12 +7,22 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/reservations" element={<ReservationsPage />}></Route>
-      </Routes>
-      <Footer />
+      <div className="block-bg">
+        <div className="block">
+          <Header />
+        </div>
+      </div>
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/reservations" element={<ReservationsPage />}></Route>
+        </Routes>
+
+      <div className="block-bg" style={{background: 'var(--gray)'}}>
+        <div className="block">
+        <Footer />
+    </div></div>
+      </main>
     </>
   )
 }

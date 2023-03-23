@@ -3,7 +3,10 @@
   background: #d9d9d9;
 }
 
-
+.subtitle {
+  text-align: center;
+  width: 100%;
+}
 
 @media (max-width: 700px) {
   .gridAdjustableColumns {
@@ -14,7 +17,7 @@
 
 @media (min-width: 701px) {
   .gridAdjustableColumns {
-    width: min(1000px,75rem);
+    width: min(1000px, 75rem);
     margin: 0 auto;
     grid-auto-flow: column;
     gap: 1em;

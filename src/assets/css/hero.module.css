@@ -4,37 +4,46 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  height: 406px;
-  min-width: 100%;
+  height: fit-content;
+  min-height: 310px;
   position: relative;
 }
+
 #hero p {
   color: var(--clr-3-lt);
   max-width: 25ch;
-  margin: 0 0 3em;
   border-radius: 1rem;
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+
+  color: #ffffff;
+
 }
-.heroImgBoxText {
+.heroTextWrapper {
   position: absolute;
-  top: 23px;
-  z-index: 2;
+  margin: auto auto;
 }
-.heroImgBoxFood {
+.heroImg {
   z-index: 1;
   position: absolute;
   top: 23px;
-  right: 15%;
+  right: 0;
   max-height: 406px;
   display: none;
-  .heroImgBoxText {
-    position: absolute;
-    left: 15%;
-    top: 23px;
-    z-index: 2;
-  }
 }
+
 @media (min-width: 768px) {
-  .heroImgBoxFood {
+  #hero {
+    height: 406px;
+  }
+  .heroTextWrapper {
+    position: absolute;
+    top: 23px;
+  }
+  .heroImg {
     display: block;
   }
 }

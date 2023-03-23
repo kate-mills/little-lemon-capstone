@@ -7,3 +7,16 @@
   margin-top: 5%;
   min-height: 555px;
 }
+
+
+#menu_items {
+  background: red;
+  position: relative;
+  width: 860px;
+  height: 419.49px;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}

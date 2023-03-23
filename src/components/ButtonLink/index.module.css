@@ -1,0 +1,30 @@
+.btn__link:link {
+  padding: 12px 32px 11px;
+  min-height: 23px;
+
+  border-radius: 16px;
+  margin-top: 29px;
+  background: #f4ce14;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  text-decoration: none;
+  text-transform: capitalize;
+  color: #000000;
+  transition: all 0.3s linear;
+}
+
+
+.btn__link:hover {
+  background: #48742C;
+  color: #EDEFED;
+}
