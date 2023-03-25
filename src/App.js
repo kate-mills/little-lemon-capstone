@@ -1,17 +1,17 @@
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import BlockBg from './components/BlockBg'
+
 import { ReservationsPage, HomePage } from './pages'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <div className="block-bg" style={{ background: 'var(--white)' }}>
-        <div className="block">
+    <BlockBg bgColor={'var(--white)'}>
           <Header />
-        </div>
-      </div>
+      </BlockBg>
 
       <main>
         <Routes>
@@ -20,11 +20,9 @@ function App() {
         </Routes>
       </main>
 
-      <div className="block-bg" style={{ background: 'var(--gray)' }}>
-        <div className="block">
+    <BlockBg bgColor={'var(--gray)'}>
           <Footer />
-        </div>
-      </div>
+    </BlockBg>
     </>
   )
 }
