@@ -43,6 +43,10 @@ a:hover {
   font-style: normal;
   font-family: var(--ff-main);
 }
+header {
+  padding-block: 86px;
+  background: var(--white);
+}
 header a {
   font-weight: 800;
   text-transform: uppercase;
@@ -100,7 +104,6 @@ p {
   color: var(--clr-primary-1);
 }
 header {
-  background: var(--clr-highlight-2);
   display: flex;
   flex-wrap: wrap;
   align-items: center;

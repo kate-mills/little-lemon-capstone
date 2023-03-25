@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <>
-      <div className="block-bg">
+      <div className="block-bg" style={{background: 'var(--white)'}}>
         <div className="block">
           <Header />
         </div>
