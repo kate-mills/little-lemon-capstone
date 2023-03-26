@@ -1,7 +1,7 @@
-import HeroTitle from './HeroTitle'
-import Block from './Block'
-import brothers from '../assets/brothers.png'
-import styles from '../assets/css/about.module.css'
+import HeroTitle from '../HeroTitle'
+import Block from '../Block'
+import brothers from '../../assets/brothers.png'
+import styles from './index.module.css'
 
 const About = () => {
   return (
