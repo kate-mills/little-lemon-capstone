@@ -1,8 +1,5 @@
-import React from 'react'
-
-import styles from '../assets/css/menuitem.module.css'
-
 import ArrowRight from './ArrowRight'
+import styles from '../assets/css/menuitem.module.css'
 
 const MenuItem = ({
   image = '',
