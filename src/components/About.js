@@ -1,12 +1,11 @@
-import styles from '../assets/css/about.module.css'
 import HeroTitle from './HeroTitle'
-
-import BlockBg from './BlockBg'
+import Block from './Block'
 import brothers from '../assets/brothers.png'
+import styles from '../assets/css/about.module.css'
 
 const About = () => {
   return (
-    <BlockBg bgColor="#36433E">
+    <Block bgColor="#36433E">
       <article id={styles.about}>
         <div className={styles.text_box}>
           <HeroTitle />
@@ -19,7 +18,7 @@ const About = () => {
           <img src={brothers} alt="Photos of Adrian & Mario" />
         </div>
       </article>
-    </BlockBg>
+    </Block>
   )
 }
 export default About

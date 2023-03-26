@@ -1,14 +1,12 @@
-import * as React from 'react'
-import { websiteLinks, socialLinks } from '../constants/links'
-
 import logo from '../assets/ImgLogoFooter.png'
-
-import BlockBg from './BlockBg'
+import Block from './Block'
 import styles from '../assets/css/footer.module.css'
+
+import { websiteLinks, socialLinks } from '../constants/links'
 
 const Footer = () => {
   return (
-    <BlockBg bgColor={'var(--gray)'}>
+    <Block bgColor={'var(--gray)'}>
       <footer id={styles.footer}>
         <div className={styles.footer_img_box}>
           <img
@@ -56,7 +54,7 @@ const Footer = () => {
           </nav>
         </div>
       </footer>
-    </BlockBg>
+    </Block>
   )
 }
 

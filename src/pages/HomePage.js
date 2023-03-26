@@ -1,26 +1,17 @@
-import React from 'react'
 import Hero from '../components/Hero'
 import Specials from '../components/Specials'
 import Testimonials from '../components/Testimonials'
-import BlockBg from '../components/BlockBg'
-
 import About from '../components/About'
+
+import menu_items from '../constants/this_week_specials'
 
 const HomePage = () => {
   return (
     <>
-      <BlockBg bgColor="var(--clr-primary-1)">
-        <Hero />
-      </BlockBg>
-      <BlockBg bgColor="var(--clr-highlight-2)">
-        <Specials />
-      </BlockBg>
-
-      <BlockBg bgColor="#f8f2ec">
-        <Testimonials />
-      </BlockBg>
-
-    <About/>
+      <Hero />
+      <Specials menu_items={menu_items}/>
+      <Testimonials />
+      <About />
     </>
   )
 }
