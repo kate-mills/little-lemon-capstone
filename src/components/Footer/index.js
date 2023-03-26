@@ -1,8 +1,8 @@
-import logo from '../assets/ImgLogoFooter.png'
-import Block from './Block'
-import styles from '../assets/css/footer.module.css'
+import logo from '../../assets/ImgLogoFooter.png'
+import Block from '../Block'
+import styles from './index.module.css'
 
-import { websiteLinks, socialLinks } from '../constants/links'
+import { websiteLinks, socialLinks } from '../../constants/links'
 
 const Footer = () => {
   return (
