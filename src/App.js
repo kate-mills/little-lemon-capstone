@@ -9,8 +9,8 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <>
-    <BlockBg bgColor={'var(--white)'}>
-          <Header />
+      <BlockBg bgColor={'var(--white)'}>
+        <Header />
       </BlockBg>
 
       <main>
@@ -20,9 +20,7 @@ function App() {
         </Routes>
       </main>
 
-    <BlockBg bgColor={'var(--gray)'}>
-          <Footer />
-    </BlockBg>
+        <Footer />
     </>
   )
 }

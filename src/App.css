@@ -90,11 +90,6 @@ h5 {
 img {
   height: auto;
 }
-li {
-  display: inline-block;
-  margin: 1em;
-  margin-inline-start: 0;
-}
 p {
   font-family: var(--ff-main);
   font-style: normal;
@@ -110,47 +105,11 @@ header {
   justify-content: space-between;
   margin: 0 auto;
 }
-footer {
-  padding-block: 7%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: space-between;
-  width: 100%;
-  padding-block-end: 10%;
-}
-footer > div {
-  margin: 1.75rem 1.75rem 0 0;
-}
-footer li {
-  display: block;
-  margin-block-start: 1em;
+header li {
+  display: inline-block;
+  margin: 1em;
   margin-inline-start: 0;
-  margin-inline: 0;
 }
-address {
-  margin-block-start: 1em;
-}
-address,
-a.footer-text {
-  font-family: var(--ff-main);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  text-transform: none !important;
-  color: #000000;
-}
-footer nav:first-child li:first-child {
-  margin-top: 0;
-}
-address > * {
-  display: block;
-}
-address > a {
-  margin-top: 1em;
-}
-
 div.block-bg {
   padding-inline: 5%;
   z-index: -1;

@@ -10,6 +10,6 @@ export const websiteLinks = [
 
 
 export const socialLinks = [
-  { title: 'instagram', href: 'https://www.instagram.com' },
-  { title: 'facebook', href: 'https://www.facebook.com' },
+  { title: '@instagram', href: 'https://www.instagram.com' },
+  { title: '@facebook', href: 'https://www.facebook.com' },
 ];
