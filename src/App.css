@@ -43,16 +43,7 @@ a:hover {
   font-style: normal;
   font-family: var(--ff-main);
 }
-header {
-  padding-block: 86px;
-  background: var(--white);
-}
-header a {
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1rem;
-  line-height: 1.1875rem;
-}
+
 h1,
 h2 {
   font-size: 4rem;
@@ -97,16 +88,4 @@ p {
   font-size: 16px;
   line-height: 19px;
   color: var(--clr-primary-1);
-}
-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-}
-header li {
-  display: inline-block;
-  margin: 1em;
-  margin-inline-start: 0;
 }
