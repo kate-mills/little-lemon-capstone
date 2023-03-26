@@ -3,7 +3,7 @@ import Specials from '../components/Specials'
 import Testimonials from '../components/Testimonials'
 import About from '../components/About'
 
-import menu_items from '../constants/this_week_specials'
+import menu_items from '../constants/weekly-specials'
 
 const HomePage = () => {
   return (
