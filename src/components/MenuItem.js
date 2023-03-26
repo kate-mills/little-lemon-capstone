@@ -2,15 +2,14 @@ import React from 'react'
 
 import styles from '../assets/css/menuitem.module.css'
 
-import grilledfish from '../assets/grilled-fish.png'
 import ArrowRight from './ArrowRight'
 
 const MenuItem = ({
-  image = grilledfish,
+  image = '',
   imageAlt = '',
-  title = 'Greek Salad',
-  price = '1.99',
-  description = 'The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.',
+  title = '',
+  price = '',
+  description = '',
 }) => {
   return (
     <div className={styles.menuItem}>
@@ -25,7 +24,7 @@ const MenuItem = ({
               />
             </div>
           ) : (
-            <DefaultMenuImg />
+            null
           )}
         </div>
 
@@ -51,41 +50,4 @@ const MenuItem = ({
     </div>
   )
 }
-
-const DefaultMenuImg = ({ className }) => {
-  return (
-    <svg
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      width="261"
-      height="170"
-      viewBox="0 0 261 170"
-      fill="none"
-    >
-      {' '}
-      <g clip-path="url(#clip0_103_238)">
-        {' '}
-        <path
-          d="M260 0.714294H0V169.535H260V0.714294Z"
-          fill="black"
-          fill-opacity="0.67"
-        />{' '}
-        <path
-          d="M1.30005 167.526L258.7 2.72388M1.30005 2.7239L260 169.536"
-          stroke="black"
-          stroke-opacity="0.67"
-          stroke-width="1.035"
-        />{' '}
-      </g>{' '}
-      <defs>
-        {' '}
-        <clipPath id="clip0_103_238">
-          {' '}
-          <rect width="261" height="170" fill="white" />{' '}
-        </clipPath>{' '}
-      </defs>{' '}
-    </svg>
-  )
-}
-
 export default MenuItem
