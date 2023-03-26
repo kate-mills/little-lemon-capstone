@@ -1,7 +1,6 @@
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import BlockBg from './components/BlockBg'
 
 import { ReservationsPage, HomePage } from './pages'
 import { Routes, Route } from 'react-router-dom'
@@ -9,9 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <>
-      <BlockBg bgColor={'var(--white)'}>
-        <Header />
-      </BlockBg>
+      <Header />
 
       <main>
         <Routes>
@@ -20,7 +17,7 @@ function App() {
         </Routes>
       </main>
 
-        <Footer />
+      <Footer />
     </>
   )
 }

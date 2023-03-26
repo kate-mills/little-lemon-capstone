@@ -110,13 +110,3 @@ header li {
   margin: 1em;
   margin-inline-start: 0;
 }
-div.block-bg {
-  padding-inline: 5%;
-  z-index: -1;
-}
-@media (min-width: 768px) {
-  div.block-bg > *.block {
-    max-width: var(--max-width);
-    margin: 0 auto;
-  }
-}
