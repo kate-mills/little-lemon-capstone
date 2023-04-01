@@ -1,24 +1,21 @@
 .header {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
   align-items: center;
   justify-content: space-between;
+  padding-block: 0.625rem;
+  padding-inline: 0;
+}
+.header nav {
+  display: inline-block;
+}
+.header ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 .header li {
   display: inline-block;
-  font-size: 1rem;
-  line-height: 1.1875rem;
-  margin: 1rem;
-  margin-inline-start: 0;
-}
-.header li:not(:last-child){
-  margin-inline-end: 2.55375rem;
-}
-.header a {
-  font-family: 'Karla';
-  font-style: normal;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.1875rem;
 }
