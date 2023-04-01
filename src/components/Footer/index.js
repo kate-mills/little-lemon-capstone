@@ -6,7 +6,7 @@ import { websiteLinks, socialLinks } from '../../constants/links'
 
 const Footer = () => {
   return (
-    <Block bgColor={'var(--gray)'}>
+    <Block bgColor={'var(--clr-highlight-2)'}>
       <footer id={styles.footer}>
         <div className={styles.footer_img_box}>
           <img
