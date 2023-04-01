@@ -3,13 +3,12 @@
   --clr-primary-2: #f4ce14;
   --clr-secondary-1: #ee9972;
   --clr-secondary-2: #fbdabb;
-  --clr-highlight-1: #333333;
   --clr-highlight-2: #edefee;
 
   --gray: #d9d9d9;
+  --almost-black: #333333;
   --black: #000000;
   --white: #ffffff;
-  --ff-main: 'Karla', sans-serif;
 
   --main-padding: 15%;
 
@@ -32,13 +31,13 @@ html {
 }
 body {
   margin: 0;
-  font-family: var(--ff-main);
+  font-family: 'Karla', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.1875;
-  color: var(--clr-highlight-1);
+  color: var(--almost-black);
   text-align: left;
-  background-color: var(--white);
+  background-color: var(--clr-highlight-2);
 }
 h1,
 h2,
@@ -52,35 +51,76 @@ h6 {
   line-height: 1.2;
   color: inherit;
 }
-h1, h2 {
-  font-family: 'Markazi Text', serif;
+h1,
+h2 {
+  font-family: 'Markazi Text';
   font-style: normal;
-  font-weight: 400;
-  color: var(--black);
-  letter-spacing: 0px;
+  line-height: 1.2;
+  letter-spacing: 0%;
+  color: #000000;
 }
 h1 {
   font-size: 4rem;
+  font-weight: 500;
 }
 h2 {
   font-size: 2.5rem;
+  font-weight: 400;
 }
-h3, h4, h5 {
-  font-family: var(--ff-main);
-  font-weight: 700;
-  color: var(--black);
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0%;
+  color: #000000;
+}
+h3,
+h4 {
+  font-family: 'Karla';
+  font-style: normal;
+  color: #000000;
+  font-weight: 800;
+}
+h3 {
+  /* section title */
+  font-size: 1.25rem;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+h4 {
+  /* section categories */
   font-size: 1rem;
+  line-height: 1.1875;
+  text-transform: capitalize;
 }
+h5 {
+  /* card title */
+  font-weight: 800;
+  font-size: 1.125rem;
+  line-height: 1.3125;
+}
+h6{
+  /* lead text (cta) */
+  font-size: 1.125rem;
+  line-height: 1.16666667;
+  color: #000000;
+}
+
 img {
   height: auto;
   max-width: 100%;
 }
 p {
-  font-family: var(--ff-main);
+  font-family: 'Karla', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+
+  font-size: 1rem;
+  line-height: 1.1875;
+  color: #495e57;
 }
 address {
   margin-bottom: 1rem;
@@ -91,6 +131,7 @@ ul {
   margin-top: 0;
   margin-bottom: 0;
 }
+
 a {
   color: var(--black);
   text-decoration: none;
@@ -98,7 +139,7 @@ a {
 }
 a:hover {
   color: var(--clr-primary-1);
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:not([href]):not([tabindex]) {
   color: inherit;
@@ -122,4 +163,13 @@ img {
 svg {
   overflow: hidden;
   vertical-align: middle;
+}
+
+.txt-highlight {
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.1875;
+  color: #495e57;
 }
