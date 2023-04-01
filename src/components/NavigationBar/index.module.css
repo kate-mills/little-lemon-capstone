@@ -3,16 +3,16 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  background: var(--white);
-  min-height: 160px;
 }
 .header li {
   display: inline-block;
   font-size: 1rem;
   line-height: 1.1875rem;
   margin: 1rem;
-  margin-inline-start: 2.55375rem;
-  margin-inline-end: 0;
+  margin-inline-start: 0;
+}
+.header li:not(:last-child){
+  margin-inline-end: 2.55375rem;
 }
 .header a {
   font-family: 'Karla';
@@ -21,5 +21,4 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.1875rem;
-  color: #000000;
 }

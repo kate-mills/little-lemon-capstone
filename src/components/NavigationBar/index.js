@@ -1,20 +1,15 @@
 import Block from '../Block'
-import logo from '../../assets/logo.svg'
+import Logo from './Logo'
 
 import { websiteLinks } from '../../constants/links'
 import styles from './index.module.css'
 
-
 const Header = () => {
   return (
-    <Block bgColor={'var(--white)'}>
+    <Block bgColor={'var(--clr-highlight-2)'}>
       <header className={styles.header}>
         <a href="/">
-          <img
-            style={{ display: 'inline-block' }}
-            src={logo}
-            alt="Little Lemon Logo"
-          />
+          <Logo />
         </a>
         <nav>
           <ul>
