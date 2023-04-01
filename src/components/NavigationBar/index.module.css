@@ -5,13 +5,14 @@
   justify-content: space-between;
   background: var(--white);
   min-height: 160px;
-  padding-block: 68px;
 }
 .header li {
   display: inline-block;
   font-size: 1rem;
   line-height: 1.1875rem;
   margin: 1rem;
+  margin-inline-start: 2.55375rem;
+  margin-inline-end: 0;
 }
 .header a {
   font-family: 'Karla';

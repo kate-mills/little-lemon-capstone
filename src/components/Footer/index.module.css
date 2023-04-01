@@ -4,42 +4,32 @@
   justify-content: space-between;
   width: 100%;
   padding-block-end: 2.25rem;
-
-  font-family: var(--ff-main);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
   text-transform: none;
-  color: #000000;
+  align-items: flex-start;
 }
 .footer_img_box {
-  width: 125px;
-  height: 292px;
-  margin-inline-end: 75px;
+  margin-inline-end: 2rem;
+  margin-block: 24px;
 }
+/*.footer_nav_box { margin: 3rem 1.75rem 0 0; }*/
 .footer_nav_box {
-  margin: 3rem 1.75rem 0 0;
+  margin-inline-end: 2rem;
 }
 .footer_nav_box li {
   display: block;
 }
 .footer_nav_box h5 {
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 700;
   font-size: 18px;
-  line-height: 21px;
-  color: #000000;
   padding-block-end: 21px;
-}
-.footer_nav_box a {
-  line-height: 1.75;
+  padding-block-start: 58px;
 }
 .footer_address > a,
 .footer_address > span {
   display: block;
-  font-style: normal;
 }
-.footer_address  a:first-of-type {
+.footer_nav_box a {
+  line-height: 1.75;
+}
+.footer_address a:first-of-type {
   margin-top: 1rem;
 }

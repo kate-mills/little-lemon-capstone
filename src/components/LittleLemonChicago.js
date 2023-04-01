@@ -1,7 +1,7 @@
 const HeroTitle = ({color1="#F5F5F5", color2="#F5F5F5"}) => {
   return (
     <svg
-    style={{maxWidth: '100%'}}
+      style={{maxWidth: '100%'}}
       width="280"
       height="119"
       viewBox="0 0 280 119"

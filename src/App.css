@@ -9,7 +9,6 @@
   --gray: #d9d9d9;
   --black: #000000;
   --white: #ffffff;
-  --ff-display: 'Markazi Text', serif;
   --ff-main: 'Karla', sans-serif;
 
   --main-padding: 15%;
@@ -17,8 +16,8 @@
   --max-width: 860px;
 }
 *,
-*::after,
-*::before {
+::after,
+::before {
   box-sizing: border-box;
   color: inherit;
   font-family: inherit;
@@ -26,60 +25,55 @@
   padding: 0;
 }
 html {
-  font-family: var(--ff-main);
-  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.1875;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 body {
-  background: var(--clr-highlight-2);
-  color: var(--clr-highlight-1);
+  margin: 0;
   font-family: var(--ff-main);
   font-size: 1rem;
   font-weight: 400;
+  line-height: 1.1875;
+  color: var(--clr-highlight-1);
+  text-align: left;
+  background-color: var(--white);
 }
-a:link,
-a:visited,
-a:hover {
-  text-decoration: none;
-  font-style: normal;
-  font-family: var(--ff-main);
-}
-
 h1,
-h2 {
-  font-size: 4rem;
-  line-height: 4.8125rem;
-  font-family: var(--ff-display);
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.2;
+  color: inherit;
+}
+h1, h2 {
+  font-family: 'Markazi Text', serif;
   font-style: normal;
   font-weight: 400;
   color: var(--black);
+  letter-spacing: 0px;
+}
+h1 {
+  font-size: 4rem;
 }
 h2 {
   font-size: 2.5rem;
-  line-height: 3rem;
 }
-h3,
-h4,
-h5 {
-  color: var(--black);
+h3, h4, h5 {
   font-family: var(--ff-main);
-  font-style: normal;
   font-weight: 700;
-}
-h3 {
-  font-size: 20px;
-  line-height: 23px;
-  text-transform: capitalize;
-}
-h4 {
+  color: var(--black);
   font-size: 1rem;
-  line-height: 19px;
-}
-h5 {
-  font-size: 18px;
-  line-height: 21px;
 }
 img {
   height: auto;
+  max-width: 100%;
 }
 p {
   font-family: var(--ff-main);
@@ -87,5 +81,45 @@ p {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
+}
+address {
+  margin-bottom: 1rem;
+  font-style: normal;
+  line-height: inherit;
+}
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+a {
+  color: var(--black);
+  text-decoration: none;
+  background-color: transparent;
+}
+a:hover {
   color: var(--clr-primary-1);
+  text-decoration: underline;
+}
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+}
+a:not([href]):not([tabindex]):focus,
+a:not([href]):not([tabindex]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+a:not([href]):not([tabindex]):focus {
+  outline: 0;
+}
+figure {
+  margin: 0 0 1rem;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+svg {
+  overflow: hidden;
+  vertical-align: middle;
 }

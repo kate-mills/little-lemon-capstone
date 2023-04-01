@@ -1,5 +1,5 @@
-import Hero from '../components/Hero'
-import Specials from '../components/Specials'
+import Hero from '../components/HeroSection'
+import Specials from '../components/WeeklySpecials'
 import Testimonials from '../components/Testimonials'
 import About from '../components/About'
 

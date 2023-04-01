@@ -35,7 +35,7 @@ const Footer = () => {
           <address className={styles.footer_address}>
             <span>555 3rd Street</span>
             <span>San Francisco, CA</span>
-            <a href="mailto:@example.com">contact@littlelemon.com</a>
+            <a href="mailto:@example.com">info@littlelemon.com</a>
             <a href="tel:+15555555555">(555) 555-5555</a>
           </address>
         </div>

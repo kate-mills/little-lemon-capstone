@@ -1,4 +1,4 @@
-import HeroTitle from '../HeroTitle'
+import LittleLemonChicago from '../LittleLemonChicago'
 import Block from '../Block'
 import brothers from '../../assets/brothers.png'
 import styles from './index.module.css'
@@ -8,7 +8,7 @@ const About = () => {
     <Block bgColor="#36433E">
       <article id={styles.about}>
         <div className={styles.text_box}>
-          <HeroTitle />
+          <LittleLemonChicago />
           <p className={styles.paragraph_text}>
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist.

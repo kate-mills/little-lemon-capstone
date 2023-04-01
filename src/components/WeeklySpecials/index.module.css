@@ -1,4 +1,4 @@
-#special {
+#weekly_specials {
   background: var(--clr-3-lt);
   min-height: 100%;
   display: flex;
@@ -7,14 +7,15 @@
   padding-block-start: 88px;
   padding-block-end: 86px;
 }
-.special__header{
+.weekly_specials_header {
   margin-block-end: 51px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
-.special__header > a{
+
+.weekly_specials_header > a {
   margin-top: 0;
 }
 .menu_items {
@@ -23,4 +24,3 @@
   gap: 40px;
   justify-content: space-between;
 }
-

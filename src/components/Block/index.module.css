@@ -1,10 +1,13 @@
 .block_bg {
   padding-inline: 5%;
+  margin: 0 0 0 0;
   z-index: -1;
+  min-width: 100vw;
 }
 @media (min-width: 768px) {
+
   .block_bg > .block {
-    max-width: var(--max-width);
+    max-width: 860px;
     margin: 0 auto;
   }
 }

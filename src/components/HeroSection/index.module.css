@@ -1,0 +1,38 @@
+#hero {
+  background: var(--clr-1-dk);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 400px;
+  position: relative;
+}
+#hero p {
+  color: var(--clr-highlight-2);
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  margin-top: 24px;
+  max-width: 350px;
+}
+.heroTextWrapper {
+  padding-block-start: 64px;
+  padding-block-end: 73px;
+}
+.heroTextWrapper > a {
+  margin-top: 29px;
+}
+
+.heroImg > img {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .heroImg > img {
+    display: block;
+  }
+}
