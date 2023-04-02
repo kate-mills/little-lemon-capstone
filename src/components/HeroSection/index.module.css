@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: var(--justify-content);
   min-height: 400px;
   position: relative;
 }

@@ -12,9 +12,9 @@
 }
 .header ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: var(--justify-content);
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 }
 .header li {
   display: inline-block;
