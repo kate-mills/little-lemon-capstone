@@ -104,7 +104,7 @@ h5 {
   font-size: 1.125rem;
   line-height: 1.3125;
 }
-h6{
+h6 {
   /* lead text (cta) */
   font-size: 1.125rem;
   line-height: 1.16666667;
@@ -163,19 +163,19 @@ svg {
   overflow: hidden;
   vertical-align: middle;
 }
-
+li {
+  list-style-type: none;
+}
+address * {
+  display: block;
+}
 .txt-highlight {
-  font-family: 'Karla', sans-serif;
-  font-style: normal;
-  font-size: 1rem;
   font-weight: 500;
-  line-height: 1.1875;
   color: #495e57;
 }
 
-
-@media(min-width: 860px){
-  :root{
+@media (min-width: 860px) {
+  :root {
     --justify-content: space-between;
   }
 }

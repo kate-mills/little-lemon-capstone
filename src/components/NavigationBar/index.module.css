@@ -16,6 +16,3 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
-.header li {
-  display: inline-block;
-}
