@@ -1,6 +1,6 @@
-import lemonCake from '../assets/lemon-cake.jpg'
-import bruschetta from '../assets/bruschetta.jpg'
-import greekSalad from '../assets/greek-salad.png'
+import greekSalad from '../assets/menu-item-greek-salad.jpg'
+import bruschetta from '../assets/menu-item-bruschetta.jpg'
+import lemonCake from '../assets/menu-item-lemon-cake.jpg'
 
 const menu_items = [
   {
@@ -25,7 +25,7 @@ const menu_items = [
     title: 'Lemon Cake',
     price: '12.99',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.',
+      'Light, fluffy, and deliciously tangy. With four layers of the cake coated in a rich lemon-flavored cream cheese frosting, this dessert has no shortage of bright lemon flavor.',
   },
 ]
 
