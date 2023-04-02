@@ -1,0 +1,29 @@
+#testimonials {
+  height: fit-content;
+  padding-block-start: 10%;
+  padding-block-end: 7.5%;
+}
+.testimonials__header {
+  margin-block-end: 2em;
+}
+
+.subtitle {
+  text-align: center;
+  width: 100%;
+}
+.testimonial__list {
+  display: flex;
+  gap: 20px;
+  justify-content: var(--justify-content);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  #testimonials {
+    padding-block-start: 156.66px;
+    padding-block-end: 124px;
+  }
+  .testimonials__header {
+    margin-block-end: 144.34px;
+  }
+}

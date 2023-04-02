@@ -1,0 +1,27 @@
+.testimonial {
+  width: 200px;
+  height: 232px;
+  border-radius: 0px;
+  position: relative;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  background: var(--white);
+  padding-block: 13px;
+  padding-inline: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+.customer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.customer_name{
+  width: 60%;
+
+}
