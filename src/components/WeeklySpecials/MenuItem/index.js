@@ -10,32 +10,29 @@ const MenuItem = ({
   return (
     <div className={styles.menuItem}>
       <div className={styles.menuItem__bg}>
-        <div className={styles.menuItem__Image}>
-          {!!(image.length > 0) ? (
-            <div className={styles.menuItem__Image__bg}>
-              <img
-                src={image}
-                alt={imageAlt}
-                className={styles.menuItem__Image__img}
-              />
+        <div>
+          {image ? (
+            <img
+              src={image}
+              alt={imageAlt}
+              className={styles.menuItem_image_img}
+            />
+          ): <div className={styles.menuItem_image_none}>
+           <p><span>Photo Coming Soon!</span></p>
             </div>
-          ) : null}
+          }
         </div>
-
-        <div className={styles.menuItem__Details}>
-          <div className={styles.menuItem__Details__Header}>
-            <p className={styles.menuItem__Details__Header__title}>{title}</p>
-            <p className={styles.menuItem__Details__Header__price}>${price}</p>
+        <div className={styles.menuItem_details}>
+          <div className={styles.menuItem_details_header}>
+            <h5>{title}</h5>
+            <p className="highlight">${price}</p>
           </div>
-          <div className={styles.menuItem__Details__description}>
+          <div className={styles.menuItem_details_description}>
             {description}
           </div>
-
-          <div className={styles.menuItem__Details__Footer}>
-            <div className={styles.menuItem__Details__Footer__order_a_delivery}>
-              Order a delivery
-            </div>
-            <div className={styles.menuItem__Details__Footer__arrow}>
+          <div className={styles.menuItem_details_footer}>
+            <div>Order a delivery</div>
+            <div className={styles.menuItem_details_footer_arrow}>
               <ArrowRight />
             </div>
           </div>

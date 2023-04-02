@@ -1,15 +1,8 @@
 .menuItem {
-  font-family: 'Karla';
-  font-style: normal;
   height: 419.4879150390625px;
   width: 260px;
   border-radius: 0px;
   position: relative;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0 auto;
 }
 .menuItem__bg {
   height: 435px;
@@ -17,75 +10,44 @@
   background: var(--white);
   border-radius: 16px 16px 0 0;
 }
-.menuItem__Image {
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 59.76%;
-}
-.menuItem__Image__bg {
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-}
-.menuItem__Image__img {
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 59.76%;
+.menuItem_image_img {
   height: 168.82142639160156px;
   width: 260px;
-  left: 0px;
-  top: 0px;
   border-radius: 16px 16px 0 0;
 }
-.menuItem__Details {
-  height: 241.34506225585938px;
-  width: 226px;
-  border-radius: 0px;
-  position: absolute;
-  left: 6.54%;
-  right: 6.54%;
-  top: 42.47%;
-  bottom: 0%;
+.menuItem_image_none {
+  height: 168.82142639160156px;
+  width: 260px;
+  border-radius: 16px 16px 0 0;
+  background:var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.menuItem__Details__description {
+.menuItem_details {
+  height: 241.34506225585938px;
+  max-width: 226px;
+  margin: 10.07px auto 0;
+}
+.menuItem_details_description {
   margin-top: 28.65px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  color: #000000;
   max-height: 135.54px;
   overflow: scroll;
 }
-.menuItem__Details__Header {
-  height: 23.140411376953125px;
+.menuItem_details_header {
   width: 226px;
-  font-style: normal;
-  font-size: 18px;
+  height: 25px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
-.menuItem__Details__Header__title {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18.3787px;
-  line-height: 21px;
-  color: #000000;
-}
-.menuItem__Details__Header__price {
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
-  text-align: right;
-  color: #495e57;
-  color: #ee9972;
-}
-.menuItem__Details__Footer {
+.menuItem_details_header p,
+.menuItem_details_header h5{
+  margin-bottom: 0;
+  line-height: 1;
+} 
+.menuItem_details_footer {
   min-height: 17.63079833984375px;
   width: 154px;
   border-radius: 0px;
@@ -94,6 +56,6 @@
   display: flex;
   align-items: center;
 }
-.menuItem__Details__Footer__arrow {
+.menuItem_details_footer_arrow {
   padding-left: 8.31px;
 }
