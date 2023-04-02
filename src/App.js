@@ -2,7 +2,7 @@ import './App.css'
 import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'
 
-import { ReservationsPage, HomePage } from './pages'
+import { HomePage, AboutPage, MenuPage, ReserveATablePage, OrderOnlinePage, LoginPage, ErrorPage } from './pages'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -12,7 +12,12 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/reservations" element={<ReservationsPage />}></Route>
+          <Route path="/about" element={<AboutPage />}></Route>
+          <Route path="/menu" element={<MenuPage />}></Route>
+          <Route path="/reserve-a-table" element={<ReserveATablePage />}></Route>
+          <Route path="/order-online" element={<OrderOnlinePage />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
       </main>
       <Footer />

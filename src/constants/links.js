@@ -2,7 +2,7 @@ export const websiteLinks = [
   { title: 'Home', href: '/' },
   { title: 'About', href: '/about' },
   { title: 'Menu', href: '/menu' },
-  { title: 'Reserve A Table', href: '/booking' },
+  { title: 'Reserve A Table', href: '/reserve-a-table' },
   { title: 'Order Online', href: '/order-online' },
   { title: 'Login', href: '/login' },
 ];
