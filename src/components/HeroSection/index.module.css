@@ -1,10 +1,10 @@
 #hero {
   background: var(--clr-1-dk);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: var(--justify-content);
-  min-height: 400px;
+  justify-content: space-between;
+  height: 400px;
   position: relative;
 }
 #hero p {
@@ -24,15 +24,14 @@
   margin-top: 29px;
 }
 
-.heroImg > img {
-  position: absolute;
-  top: 32px;
-  right: 0;
+.heroImg  img {
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 860px) {
   .heroImg > img {
-    display: block;
+    margin-bottom: -32px;
+    display: inline-block;
+    max-width: fit-content;
   }
 }
