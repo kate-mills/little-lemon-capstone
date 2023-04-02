@@ -1,7 +1,17 @@
 import HomePage from './HomePage'
-import ReservationsPage from './ReservationsPage'
+import AboutPage from './AboutPage'
+import MenuPage from './MenuPage'
+import ReserveATablePage from './ReserveATablePage'
+import OrderOnlinePage from './OrderOnlinePage'
+import LoginPage from './LoginPage'
+import ErrorPage from './ErrorPage'
 
 export {
   HomePage,
-  ReservationsPage
+  AboutPage,
+  MenuPage,
+  ReserveATablePage,
+  OrderOnlinePage,
+  LoginPage,
+  ErrorPage
 }
