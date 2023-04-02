@@ -1,6 +1,6 @@
 import LittleLemonChicago from '../LittleLemonChicago'
 import Block from '../Block'
-import brothers from '../../assets/brothers.png'
+import brothers from '../../assets/about-chefs-mario-and-adrian.png'
 import styles from './index.module.css'
 
 const About = () => {
