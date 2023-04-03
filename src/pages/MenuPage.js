@@ -1,9 +1,16 @@
-import React from 'react'
+import Testimonials from '../components/Testimonials'
+import Specials from '../components/WeeklySpecials'
+import About from '../components/About'
 
+import menu_items from '../constants/weekly-specials'
 
 const MenuPage = () => {
   return (
-    <h1>Menu Page</h1>
+    <>
+      <Specials showMenu menu_items={menu_items}/>
+      <About/>
+      <Testimonials/>
+    </>
   )
 }
 

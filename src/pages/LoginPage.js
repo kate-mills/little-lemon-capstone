@@ -1,9 +1,10 @@
-import React from 'react'
-
+import Block from '../components/Block'
 
 const LoginPage = () => {
   return (
-    <h1>Login Page</h1>
+    <Block bgColor="var(--clr-highlight)">
+      <h1>Login</h1>
+    </Block>
   )
 }
 

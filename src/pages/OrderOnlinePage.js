@@ -1,9 +1,10 @@
-import React from 'react'
-
+import Block from '../components/Block'
 
 const OrderOnlinePage = () => {
   return (
-    <h1>OrderOnline Page</h1>
+    <Block bgColor="var(--clr-highlight)">
+      <h1>Order Online</h1>
+    </Block>
   )
 }
 

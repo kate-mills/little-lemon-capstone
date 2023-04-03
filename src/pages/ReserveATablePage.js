@@ -1,9 +1,10 @@
-import React from 'react'
-
+import Block from '../components/Block'
 
 const ReserveATablePage = () => {
   return (
-    <h1>ReserveATable Page</h1>
+    <Block bgColor="var(--clr-highlight)">
+      <h1>Reserve A Table</h1>
+    </Block>
   )
 }
 
