@@ -26,6 +26,7 @@
 
 @media (min-width: 860px) {
   .heroImg > img {
+    margin-top: 32px;
     margin-bottom: -32px;
     display: inline-block;
     max-width: fit-content;
