@@ -1,20 +1,20 @@
 import logo from '../../assets/footer-logo.svg'
 import Block from '../Block'
 import styles from './index.module.css'
-
+import {Link} from 'react-router-dom'
 import { websiteLinks, socialLinks } from '../../constants/links'
 
 const Footer = () => {
   return (
-    <Block bgColor={'var(--clr-highlight-2)'}>
+    <Block bgColor={'var(--clr-highlight)'}>
       <footer className={styles.footer}>
         <div className={styles.box}>
+    <Link to="/">
           <img
             src={logo}
             alt="Little Lemon Footer Logo"
-            width="125"
-            height="292"
           />
+    </Link>
         </div>
         <div className={styles.box}>
           <h5>Navigation</h5>
@@ -23,7 +23,7 @@ const Footer = () => {
               {websiteLinks.map(({ title, href }) => {
                 return (
                   <li key={title}>
-                    <a href={href}>{title}</a>
+                    <Link to={href}>{title}</Link>
                   </li>
                 )
               })}

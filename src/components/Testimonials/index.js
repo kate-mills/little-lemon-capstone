@@ -4,9 +4,9 @@ import Block from '../Block'
 import styles from './index.module.css'
 import reviews from '../../constants/customer-reviews'
 
-const Testimonials = () => {
+const Testimonials = ({bgColor="#f8f2ec"}) => {
   return (
-    <Block bgColor="#f8f2ec">
+    <Block bgColor={bgColor}>
       <article id={styles.testimonials}>
         <div className={styles.testimonials__header}>
           <h2 className={styles.subtitle}>What our customers say!</h2>

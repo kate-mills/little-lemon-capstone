@@ -3,9 +3,9 @@ import Block from '../Block'
 import brothers from '../../assets/about-chefs-mario-and-adrian.png'
 import styles from './index.module.css'
 
-const About = () => {
+const About = ({bgColor="#36433E"}) => {
   return (
-    <Block bgColor="#36433E">
+    <Block bgColor={bgColor}>
       <article id={styles.about}>
         <div className={styles.text_box}>
           <LittleLemonChicago />

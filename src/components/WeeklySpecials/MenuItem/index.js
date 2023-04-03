@@ -9,7 +9,7 @@ const MenuItem = ({
 }) => {
   return (
     <div className={styles.menuItem}>
-      <div className={styles.menuItem__bg}>
+      <div className={styles.menuItem_bg}>
         <div>
           {image ? (
             <img
@@ -31,7 +31,7 @@ const MenuItem = ({
             {description}
           </div>
           <div className={styles.menuItem_details_footer}>
-            <div>Order a delivery</div>
+            <p>Order a delivery</p>
             <div className={styles.menuItem_details_footer_arrow}>
               <ArrowRight />
             </div>

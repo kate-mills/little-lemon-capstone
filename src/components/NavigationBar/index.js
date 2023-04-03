@@ -1,22 +1,23 @@
 import Block from '../Block'
 import Logo from './Logo'
+import {Link} from 'react-router-dom'
 
 import { websiteLinks } from '../../constants/links'
 import styles from './index.module.css'
 
 const Header = () => {
   return (
-    <Block bgColor={'var(--clr-highlight-2)'}>
+    <Block bgColor={'var(--clr-highlight)'}>
       <header className={styles.header}>
-        <a href="/">
+        <Link to="/">
           <Logo />
-        </a>
+        </Link>
         <nav>
           <ul>
             {websiteLinks.map(({ title, href }) => {
               return (
                 <li key={title}>
-                  <a href={href}>{title}</a>
+                  <Link to={href}>{title}</Link>
                 </li>
               )
             })}

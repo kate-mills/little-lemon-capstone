@@ -4,15 +4,15 @@ import Block from '../Block'
 
 import styles from './index.module.css'
 
-const WeeklySpecials = ({ bg = 'var(--clr-highlight-2)', menu_items = [] }) => {
+const WeeklySpecials = ({ bgColor = 'var(--clr-highlight)', menu_items = [] }) => {
   return (
-    <Block bgColor={bg}>
+    <Block bgColor={bgColor}>
       <article id={styles.weekly_specials}>
         <div>
 
           <div className={styles.weekly_specials_header}>
             <h2>This weeks specials!</h2>
-            <ButtonLink href={'/menu'} text={'Online Menu'} />
+            <ButtonLink to={'/menu'} text={'Online Menu'} />
           </div>
 
           <div className={styles.menu_items}>

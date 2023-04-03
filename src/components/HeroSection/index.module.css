@@ -8,11 +8,7 @@
   position: relative;
 }
 #hero p {
-  color: var(--clr-highlight-2);
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 400;
-  line-height: 21px;
+  color: var(--clr-highlight);
   margin-top: 24px;
   max-width: 350px;
 }

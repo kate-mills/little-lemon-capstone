@@ -1,14 +1,15 @@
 import styles from './index.module.css'
+import {Link} from 'react-router-dom'
 
 const ButtonLink = ({
   text = 'Button Link',
-  href = '/',
+  to = '/',
   width = 'fit-content',
 }) => {
   return (
-    <a style={{ width: width }} className={styles.btn__link} href={href}>
+    <Link style={{ width: width }} className={styles.btn__link} to={to}>
       {text}
-    </a>
+    </Link>
   )
 }
 
