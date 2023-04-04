@@ -5,6 +5,7 @@ const MenuItem = ({
   imageAlt = '',
   title = '',
   price = '',
+  blurb = '',
   description = '',
 }) => {
   return (
@@ -17,25 +18,29 @@ const MenuItem = ({
               alt={imageAlt}
               className={styles.menuItem_image_img}
             />
-          ): <div className={styles.menuItem_image_none}>
-           <p><span>Photo Coming Soon!</span></p>
+          ) : (
+            <div className={styles.menuItem_image_none}>
+              <p>
+                <span>Photo Coming Soon!</span>
+              </p>
             </div>
-          }
+          )}
         </div>
         <div className={styles.menuItem_details}>
           <div className={styles.menuItem_details_header}>
             <h5>{title}</h5>
             <p className="txt-highlight">${price}</p>
           </div>
+
           <div className={styles.menuItem_details_description}>
-            {description}
+            <p>{blurb}</p>
           </div>
-          <div className={styles.menuItem_details_footer}>
+          <footer className={styles.menuItem_details_footer}>
             <p>Order a delivery</p>
             <div className={styles.menuItem_details_footer_arrow}>
               <ArrowRight />
             </div>
-          </div>
+          </footer>
         </div>
       </div>
     </div>

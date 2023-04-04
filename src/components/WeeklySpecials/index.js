@@ -20,14 +20,14 @@ const WeeklySpecials = ({
             {!showMenu ? (
               <ButtonLink to={'/menu'} text={'Online Menu'} />
             ) : (
-              <ButtonLink to={'/reserve-a-table'} text={'Reserve A Table'} />
+              <ButtonLink to={'/booking'} text={'Book A Table'} />
             )}
           </div>
-          <div className={styles.menu_items}>
+          <section className={styles.menu_items}>
             {menu_items.map(item => {
               return <MenuItem key={item.title} {...item} />
             })}
-          </div>
+          </section>
         </div>
       </article>
     </Block>
