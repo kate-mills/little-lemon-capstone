@@ -1,0 +1,10 @@
+.form {
+  display: grid;
+  max-width: 200px;
+  gap: 20px;
+  padding-block: 100px;
+}
+@media (min-width: 768px) {
+  .form {
+  }
+}
