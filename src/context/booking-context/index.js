@@ -8,28 +8,17 @@ import {
 } from '../../constants/available-reservation-times'
 
 import {
+  CLEAR_FORM,
   UPDATE_RES_DATE,
   UPDATE_RES_TIME,
   UPDATE_GUESTS,
   UPDATE_OCCASION,
-  UPDATE_RESERVATION_TIMES,
+  SUBMIT_FORM,
 } from './actions'
 
 import { checkWindow } from '../../utils/isBrowser'
 
-const getLocalStorage = () => {
-  if (checkWindow()) {
-    let llTable = localStorage.getItem('ll-table')
-    if (llTable) {
-      return JSON.parse(localStorage.getItem('ll-table'))
-    } else {
-      return {resDate: '', resTime: '', guests: '', occasion: ''}
-    }
-  }
-  return {}
-}
-
-const getLocalReservations = () => {
+const getLocalUserReservations = () => {
   if (checkWindow()) {
     let userReservations = localStorage.getItem('ll-user-reservations')
     if (userReservations) {
@@ -42,9 +31,11 @@ const getLocalReservations = () => {
 }
 
 const initialState = {
-  reservation: {},
-  table: getLocalStorage(),
-  userReservations: getLocalReservations(),
+  loading: false,
+  response: {type: ''},
+  message: '',
+  table: {resDate: '', resTime: '', guests: '', occasion: ''},
+  userReservations: getLocalUserReservations(),
   availableTimes,
   startDate,
   endDate,
@@ -56,7 +47,7 @@ export const BookingProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const updateTimes = (data = {}) => {
-    dispatch({ type: UPDATE_RESERVATION_TIMES, payload: { data } })
+    dispatch({ type: SUBMIT_FORM, payload: { data } })
   }
   const updateResDate = resDate => {
     dispatch({ type: UPDATE_RES_DATE, payload: { resDate } })
@@ -70,13 +61,9 @@ export const BookingProvider = ({ children }) => {
   const updateOccasion = occasion => {
     dispatch({ type: UPDATE_OCCASION, payload: { occasion } })
   }
-
-
-  useEffect(() => {
-    localStorage.setItem('ll-table', JSON.stringify(state.table))
-  }, [state.table])
-
-
+  const clearBookingForm = () => {
+    dispatch({ type: CLEAR_FORM })
+  }
   useEffect(() => {
     localStorage.setItem('ll-user-reservations', JSON.stringify(state.userReservations))
   }, [state.userReservations])
@@ -91,7 +78,8 @@ export const BookingProvider = ({ children }) => {
           updateResTime,
           updateGuests,
           updateOccasion,
-        updateTimes,
+          updateTimes,
+          clearBookingForm,
       }}
     >
       {children}

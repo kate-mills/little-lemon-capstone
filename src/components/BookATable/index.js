@@ -4,6 +4,7 @@ import { useBookingContext } from '../../context/booking-context'
 
 const BookATable = () => {
   const {
+    message,
     table:{resDate, resTime, guests, occasion},
     updateResDate,
     updateResTime,
@@ -41,6 +42,7 @@ const BookATable = () => {
       <article className={styles.book_a_table}>
         <section>
           <h2>Book A Table</h2>
+          <p className={styles.booking_message}>{message}</p>
         </section>
         <section>
           <form className={styles.form} onSubmit={handleSubmit}>
@@ -120,17 +122,13 @@ const BookATable = () => {
                 <option disabled hidden value="">
                   Select Occasion
                 </option>
-
-                <option value="birthday">Birthday</option>
+                <option value="none">No Occasion</option>
+                <option value="Birthday">Birthday</option>
                 <option value="anniversary">Anniversary</option>
-                <option value="engagement">Engagement</option>
-                <option value="Eating Out">Eating Out</option>
+                <option value="Engagement">Engagement</option>
               </select>
             </div>
-
-            <div>
-              <input type="submit" value="Book Your Table" />
-            </div>
+            <div><input type="submit" value="Book Table" /></div>
           </form>
         </section>
       </article>

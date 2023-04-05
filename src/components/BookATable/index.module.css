@@ -4,8 +4,15 @@
 }
 .book_a_table h2 {
   text-align: center;
-  padding-block-end: 72px;
   color: var(--clr-highlight);
+}
+.booking_message{
+  text-align: center;
+  margin: 0 auto;
+  color: var(--white);
+  min-height: 3rem;
+  margin-block-end: 24px;
+
 }
 .form {
   display: grid;
