@@ -1,7 +1,8 @@
 import './App.css'
 import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'
-//import { availResTimes, startDate, endDate, } from './constants/available-reservation-times'
+
+import {BookingProvider} from './context/booking-context'
 
 
 import {
@@ -18,6 +19,7 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <>
+    <BookingProvider>
       <NavigationBar />
       <main>
         <Routes>
@@ -31,6 +33,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+    </BookingProvider>
     </>
   )
 }

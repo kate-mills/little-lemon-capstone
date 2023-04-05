@@ -1,16 +1,19 @@
 import { useState } from 'react'
 import Block from '../Block'
 import styles from './index.module.css'
+import {useBookingContext} from '../../context/booking-context'
 
-const BookATable = ({ availResTimes = [], startDate = '', endDate = '' }) => {
+const BookATable = () => {
   const [resDate, setResDate] = useState('')
   const [resTime, setResTime] = useState('')
   const [guests, setGuests] = useState('4')
   const [occasion, setOccasion] = useState('')
 
+  const {availableTimes, endDate, startDate, updateTimes} = useBookingContext()
+
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(e)
+    updateTimes({resDate, resTime, guests, occasion})
   }
 
   return (
@@ -54,10 +57,10 @@ const BookATable = ({ availResTimes = [], startDate = '', endDate = '' }) => {
                 required
               >
                 <option value="">Choose Time</option>
-                {availResTimes?.map(tm => {
+                {availableTimes?.map(({time, dates}) => {
                   return (
-                    <option key={tm.time} value={tm.time}>
-                      {tm.time}
+                    <option key={time} value={time}>
+                      {time}
                     </option>
                   )
                 })}
@@ -85,7 +88,7 @@ const BookATable = ({ availResTimes = [], startDate = '', endDate = '' }) => {
             </div>
             <div className={styles.styleSelect}>
               <label htmlFor="occasion" className="bold-title">
-                <div className={styles.occasion} /> Occasion
+                <div className={styles.occasion} />Occasion
               </label>
               <select
                 id="occasion"
@@ -94,7 +97,7 @@ const BookATable = ({ availResTimes = [], startDate = '', endDate = '' }) => {
                 onChange={e => setOccasion(e.target.value)}
                 className={`${styles.input}`}
               >
-                <option value="" className={styles.option}>
+                <option value="No Occasion" className={styles.option}>
                   Occasion
                 </option>
                 <option value="birthday" className={styles.option}>
