@@ -97,3 +97,15 @@ input[type='submit']:focus-visible {
   background: var(--clr-primary-1);
   border-color: transparent;
 }
+
+input::placeholder {
+  color: #495e57a8;
+}
+
+select:invalid {
+  color: var(--clr-primary-1);
+  color: #495e57a8;
+}
+option {
+  color: red;
+}

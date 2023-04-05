@@ -1,19 +1,39 @@
-import { useState } from 'react'
 import Block from '../Block'
 import styles from './index.module.css'
-import {useBookingContext} from '../../context/booking-context'
+import { useBookingContext } from '../../context/booking-context'
 
 const BookATable = () => {
-  const [resDate, setResDate] = useState('')
-  const [resTime, setResTime] = useState('')
-  const [guests, setGuests] = useState('4')
-  const [occasion, setOccasion] = useState('')
-
-  const {availableTimes, endDate, startDate, updateTimes} = useBookingContext()
+  const {
+    table:{resDate, resTime, guests, occasion},
+    updateResDate,
+    updateResTime,
+    updateGuests,
+    updateOccasion,
+    availableTimes,
+    endDate, startDate,
+    updateTimes,
+  } = useBookingContext()
 
   const handleSubmit = e => {
     e.preventDefault()
-    updateTimes({resDate, resTime, guests, occasion})
+    updateTimes({ resDate, resTime, guests, occasion })
+  }
+
+  const handleDateChange = e => {
+    let d = e.target.value
+    updateResDate(d)
+  }
+  const handleTimeChange = e => {
+    let t = e.target.value
+    updateResTime(t)
+  }
+  const handleGuestsChange = e => {
+    let num = e.target.value
+    updateGuests(num)
+  }
+  const handleOccasionChange = e => {
+    let o = e.target.value
+    updateOccasion(o)
   }
 
   return (
@@ -34,11 +54,10 @@ const BookATable = () => {
                 name="resDate"
                 type="date"
                 value={resDate}
-                onChange={e => setResDate(e.target.value)}
+                onChange={handleDateChange}
                 min={startDate}
                 max={endDate}
                 required
-                placeholder="Choose Date"
               />
             </div>
 
@@ -51,13 +70,13 @@ const BookATable = () => {
                 id="resTime"
                 name="resTime"
                 value={resTime}
-                onChange={e => {
-                  setResTime(e.target.value)
-                }}
+                onChange={handleTimeChange}
                 required
               >
-                <option value="">Choose Time</option>
-                {availableTimes?.map(({time, dates}) => {
+                <option disabled hidden value="">
+                  Select a time
+                </option>
+                {availableTimes?.map(({ time, dates }) => {
                   return (
                     <option key={time} value={time}>
                       {time}
@@ -76,11 +95,11 @@ const BookATable = () => {
                   id="guests"
                   name="guests"
                   type="number"
-                  placeholder="4"
+                  placeholder="1 - 10"
                   min="1"
                   max="10"
                   value={guests}
-                  onChange={e => setGuests(e.target.value)}
+                  onChange={handleGuestsChange}
                   required
                   className={styles.input}
                 />
@@ -88,27 +107,24 @@ const BookATable = () => {
             </div>
             <div className={styles.styleSelect}>
               <label htmlFor="occasion" className="bold-title">
-                <div className={styles.occasion} />Occasion
+                <div className={styles.occasion} />
+                Occasion
               </label>
               <select
                 id="occasion"
                 name="occasion"
                 value={occasion}
-                onChange={e => setOccasion(e.target.value)}
-                className={`${styles.input}`}
+                onChange={handleOccasionChange}
+                required
               >
-                <option value="No Occasion" className={styles.option}>
-                  Occasion
+                <option disabled hidden value="">
+                  Select Occasion
                 </option>
-                <option value="birthday" className={styles.option}>
-                  Birthday
-                </option>
-                <option value="anniversary" className={styles.option}>
-                  Anniversary
-                </option>
-                <option value="engagement" className={styles.option}>
-                  Engagement
-                </option>
+
+                <option value="birthday">Birthday</option>
+                <option value="anniversary">Anniversary</option>
+                <option value="engagement">Engagement</option>
+                <option value="Eating Out">Eating Out</option>
               </select>
             </div>
 
