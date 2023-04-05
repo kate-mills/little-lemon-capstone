@@ -1,109 +1,120 @@
 import { useState } from 'react'
 import Block from '../Block'
 import styles from './index.module.css'
-import {
-  availResTimes,
-  startDate,
-  endDate,
-} from '../../constants/available-reservation-times'
 
-const BookATable = () => {
-
+const BookATable = ({ availResTimes = [], startDate = '', endDate = '' }) => {
   const [resDate, setResDate] = useState('')
   const [resTime, setResTime] = useState('')
-  const [guests, setGuests] = useState('')
+  const [guests, setGuests] = useState('4')
   const [occasion, setOccasion] = useState('')
 
-  const updateAvailableTimes = (resDate) => {
-    let foundTime = resTime && availResTimes.filter(({ time, dates }) => {
-        return time === resTime
-      })
-   
-  }
   const handleSubmit = e => {
     e.preventDefault()
     console.log(e)
-    let reservation = {resDate, resTime, guests, occasion}
-    updateAvailableTimes(reservation)
   }
 
   return (
-    <Block>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="resDate" className="bold-title">Choose date</label>
-          <input
-            className={styles.input}
-            id="resDate"
-            name="resDate"
-            type="date"
-            value={resDate}
-            onChange={e => setResDate(e.target.value)}
-            min={startDate}
-            max={endDate}
-            required
-          />
-        </div>
+    <Block bgColor={'var(--almost-black)'}>
+      <article className={styles.book_a_table}>
+        <section>
+          <h2>Book A Table</h2>
+        </section>
+        <section>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="resDate" className="bold-title">
+                Reservation Date
+              </label>
+              <input
+                className={styles.input}
+                id="resDate"
+                name="resDate"
+                type="date"
+                value={resDate}
+                onChange={e => setResDate(e.target.value)}
+                min={startDate}
+                max={endDate}
+                required
+                placeholder="Choose Date"
+              />
+            </div>
 
-        <div>
-          <label htmlFor="resTime" className="bold-title">Choose time</label>
-          <select
+            <div className={styles.styleSelect}>
+              <label htmlFor="resTime" className="bold-title">
+                Reservation Time
+              </label>
+              <select
+                className={`${styles.input}`}
+                id="resTime"
+                name="resTime"
+                value={resTime}
+                onChange={e => {
+                  setResTime(e.target.value)
+                }}
+                required
+              >
+                <option value="">Choose Time</option>
+                {availResTimes?.map(tm => {
+                  return (
+                    <option key={tm.time} value={tm.time}>
+                      {tm.time}
+                    </option>
+                  )
+                })}
+              </select>
+            </div>
 
-            className={styles.input}
-            id="resTime"
-            name="resTime"
-            value={resTime}
-            onChange={e => {
-              setResTime(e.target.value)
-            }}
-            required
-          >
-            <option value="">Times Available</option>
-            {availResTimes.map(tm => {
-              return (
-                <option key={tm.time} value={tm.time}>
-                  {tm.time}
+            <div>
+              <label htmlFor="guests" className="bold-title">
+                Number of guests
+              </label>
+              <span className={styles.number_wrapper}>
+                <input
+                  id="guests"
+                  name="guests"
+                  type="number"
+                  placeholder="4"
+                  min="1"
+                  max="10"
+                  value={guests}
+                  onChange={e => setGuests(e.target.value)}
+                  required
+                  className={styles.input}
+                />
+              </span>
+            </div>
+            <div className={styles.styleSelect}>
+              <label htmlFor="occasion" className="bold-title">
+                <div className={styles.occasion} /> Occasion
+              </label>
+              <select
+                id="occasion"
+                name="occasion"
+                value={occasion}
+                onChange={e => setOccasion(e.target.value)}
+                className={`${styles.input}`}
+              >
+                <option value="" className={styles.option}>
+                  Occasion
                 </option>
-              )
-            })}
-          </select>
-        </div>
+                <option value="birthday" className={styles.option}>
+                  Birthday
+                </option>
+                <option value="anniversary" className={styles.option}>
+                  Anniversary
+                </option>
+                <option value="engagement" className={styles.option}>
+                  Engagement
+                </option>
+              </select>
+            </div>
 
-        <div>
-          <label htmlFor="guests" className="bold-title">Number of guests</label>
-          <input
-            id="guests"
-            name="guests"
-            type="number"
-            placeholder="1"
-            min="1"
-            max="10"
-            value={guests}
-            onChange={e => setGuests(e.target.value)}
-            required
-            className={styles.input}
-          />
-        </div>
-        <div>
-          <label htmlFor="occasion" className="bold-title" >Occasion</label>
-          <select
-            id="occasion"
-            name="occasion"
-            value={occasion}
-            onChange={e => setOccasion(e.target.value)}
-            className={styles.input}
-          >
-            <option value="">Occasion</option>
-            <option value="birthday">Birthday</option>
-            <option value="anniversary">Anniversary</option>
-            <option value="engagement">Engagement</option>
-          </select>
-        </div>
-
-        <div>
-          <input type="submit" value="Make Your reservation" />
-        </div>
-      </form>
+            <div>
+              <input type="submit" value="Book Your Table" />
+            </div>
+          </form>
+        </section>
+      </article>
     </Block>
   )
 }

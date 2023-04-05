@@ -1,13 +1,13 @@
-import Block from '../components/Block'
 import BookATable from '../components/BookATable'
+import Testimonials from '../components/Testimonials'
+import About from '../components/About'
 
 const BookingPage = () => {
   return (
     <>
-    <Block bgColor="var(--clr-highlight)">
-      <h1>Book A Table</h1>
-    </Block>
-    <BookATable/>
+      <BookATable />
+      <Testimonials />
+      <About/>
     </>
   )
 }

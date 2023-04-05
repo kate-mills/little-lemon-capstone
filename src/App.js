@@ -1,6 +1,8 @@
 import './App.css'
 import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'
+//import { availResTimes, startDate, endDate, } from './constants/available-reservation-times'
+
 
 import {
   HomePage,
