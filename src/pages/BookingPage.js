@@ -1,5 +1,5 @@
 import Block from '../components/Block'
-import FormReserveATable from '../components/FormReserveATable'
+import BookATable from '../components/BookATable'
 
 const BookingPage = () => {
   return (
@@ -7,7 +7,7 @@ const BookingPage = () => {
     <Block bgColor="var(--clr-highlight)">
       <h1>Book A Table</h1>
     </Block>
-    <FormReserveATable/>
+    <BookATable/>
     </>
   )
 }

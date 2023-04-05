@@ -1,0 +1,109 @@
+.form {
+  display: grid;
+  max-width: 860px;
+  gap: 20px;
+  padding-block: 100px;
+}
+@media (min-width: 768px) {
+  .form {
+  }
+}
+.label {
+}
+.form div {
+  position: relative;
+}
+
+.input {
+  box-sizing: border-box;
+
+  display: block;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 16px;
+  min-height: 37px;
+
+  color: rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.input:placeholder {
+  position: absolute;
+  left: 39.24%;
+  right: 57.36%;
+  top: 38.03%;
+  bottom: 56.87%;
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.select {
+  position: absolute;
+  width: 400px;
+  height: 329px;
+  left: 460px;
+  top: 21px;
+}
+
+.option {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 75.68%;
+  bottom: 0%;
+  background: #edefee;
+  border-bottom: 1px dashed rgba(87, 103, 98, 0.6);
+}
+
+.option {
+  position: absolute;
+  width: 171px;
+  height: 16px;
+  left: 114px;
+  top: 32px;
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #576762;
+}
+
+.cheers {
+  position: absolute;
+  width: 65px;
+  height: 47px;
+  left: 29px;
+  top: 14px;
+
+  background: url(../../assets/cheers-icon.png);
+  background-blend-mode: darken;
+  border-radius: 16px;
+}
+
+.cheveron {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  left: 318px;
+  top: 32px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.17));
+}

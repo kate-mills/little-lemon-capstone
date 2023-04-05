@@ -71,6 +71,7 @@ h2 {
   font-size: 2.5rem;
   font-weight: 400;
 }
+.bold-title,
 h3,
 h4,
 h5,
@@ -80,6 +81,7 @@ h6 {
   letter-spacing: 0em;
   color: #000000;
 }
+.bold-title,
 h3,
 h4 {
   font-family: 'Karla';
@@ -93,12 +95,14 @@ h3 {
   line-height: 1.15;
   text-transform: uppercase;
 }
+.bold-title,
 h4 {
   /* section categories */
   font-size: 1rem;
   line-height: 1.1875;
   text-transform: capitalize;
 }
+
 h5 {
   /* card title */
   font-weight: 800;
