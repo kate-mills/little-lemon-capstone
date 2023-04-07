@@ -3,9 +3,8 @@ import reducer from './reducer'
 
 import {
   availableTimes,
-  startDate,
-  endDate,
 } from '../../constants/available-reservation-times'
+import {startDate, endDate, availableReservations} from '../../utils/get-reservation-dates'
 
 import {
   CLEAR_FORM,
@@ -14,6 +13,7 @@ import {
   UPDATE_GUESTS,
   UPDATE_OCCASION,
   SUBMIT_FORM,
+  CLEAR_MESSAGE,
 } from './actions'
 
 import { checkWindow } from '../../utils/isBrowser'
@@ -32,13 +32,13 @@ const getLocalUserReservations = () => {
 
 const initialState = {
   loading: false,
-  response: {type: ''},
-  message: '',
-  table: {resDate: '', resTime: '', guests: '', occasion: ''},
+  response: { type:'', msg: '' },
+  table: { resDate: '', resTime: '', guests: '', occasion: '' },
   userReservations: getLocalUserReservations(),
   availableTimes,
   startDate,
   endDate,
+  availableReservations,
 }
 
 const BookingContext = createContext()
@@ -49,37 +49,44 @@ export const BookingProvider = ({ children }) => {
   const updateTimes = (data = {}) => {
     dispatch({ type: SUBMIT_FORM, payload: { data } })
   }
-  const updateResDate = resDate => {
-    dispatch({ type: UPDATE_RES_DATE, payload: { resDate } })
+  const updateResDate = e => {
+    dispatch({ type: UPDATE_RES_DATE, payload: { resDate: e.target.value } })
   }
-  const updateResTime = resTime => {
-    dispatch({ type: UPDATE_RES_TIME, payload: { resTime } })
+  const updateResTime = e => {
+    dispatch({ type: UPDATE_RES_TIME, payload: { resTime: e.target.value } })
   }
-  const updateGuests = guests => {
-    dispatch({ type: UPDATE_GUESTS, payload: { guests } })
+  const updateGuests = e => {
+    dispatch({ type: UPDATE_GUESTS, payload: { guests: e.target.value } })
   }
-  const updateOccasion = occasion => {
-    dispatch({ type: UPDATE_OCCASION, payload: { occasion } })
+  const updateOccasion = e => {
+    dispatch({ type: UPDATE_OCCASION, payload: { occasion: e.target.value } })
   }
   const clearBookingForm = () => {
     dispatch({ type: CLEAR_FORM })
   }
-  useEffect(() => {
-    localStorage.setItem('ll-user-reservations', JSON.stringify(state.userReservations))
-  }, [state.userReservations])
+  const clearResultMessage = () => {
+    dispatch({ type: CLEAR_MESSAGE })
+  }
 
+  useEffect(() => {
+    localStorage.setItem(
+      'll-user-reservations',
+      JSON.stringify(state.userReservations)
+    )
+  }, [state.userReservations])
 
 
   return (
     <BookingContext.Provider
       value={{
         ...state,
-          updateResDate,
-          updateResTime,
-          updateGuests,
-          updateOccasion,
-          updateTimes,
-          clearBookingForm,
+        updateResDate,
+        updateResTime,
+        updateGuests,
+        updateOccasion,
+        updateTimes,
+        clearBookingForm,
+          clearResultMessage,
       }}
     >
       {children}

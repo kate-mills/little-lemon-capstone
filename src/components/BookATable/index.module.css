@@ -1,43 +1,53 @@
-.book_a_table {
-  padding-block-start: 78px;
-  padding-block-end: 62px;
+hbook_a_table {
+  padding-block-start: 15px;
+  padding-block-end: 2rem;
 }
-.book_a_table h2 {
-  text-align: center;
-  color: var(--clr-highlight);
-}
-.booking_message{
-  text-align: center;
-  margin: 0 auto;
-  color: var(--white);
-  min-height: 3rem;
-  margin-block-end: 24px;
-
+.title {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .form {
+  position: relative;
   display: grid;
-  max-width: 860px;
+  max-width: 240px;
   gap: 20px;
-  padding-block-end: 50px;
-  margin: 0 auto;
 }
-.form div {
-  margin: 0 auto;
+.form h3 {
+  color: var(--white);
+  padding-block-start: 2rem;
+}
+.heading svg,
+.heading img {
+  display: none;
+}
+.title {
+  text-align: center;
+  color: var(--clr-highlight);
+  margin-block-end: 144.34px;
+}
+.message {
+  top: 0;
+  left: -2.5rem;
+  position: absolute;
+  color: var(--clr-secondary-1);
+  letter-spacing: 0;
+  font-size:.8rem;
+}
+.err {
+  color: red;
 }
 .form label {
   display: inline-block;
   margin-block-end: 0.5rem;
   color: var(--clr-highlight);
 }
-
 .form input[type='number'],
 .form input,
 .form select {
   transition: width 0.4s ease-in-out;
   -webkit-transition: width 0.4s ease-in-out;
-  margin: 0 auto;
 }
-
 .form input[type='date'],
 .form input[type='number'],
 .form select {
@@ -47,32 +57,18 @@
   appearance: none;
   outline-width: 0;
   border-radius: 8px;
-
   padding: 10px 10px 10px 5px;
   display: block;
   width: 15em;
   border: none;
-  font-size: 1rem;
-
   border-bottom: 1px solid var(--clr-primary-1);
 }
 
-input[type='number'],
 select {
   background: url(../../assets/select.svg) no-repeat 100% 50% #fff;
 }
 
-input[type='number'] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-  margin: 0;
-}
-input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: textfield;
-}
-
 input[type='submit'] {
-  font-size: 18px;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
@@ -82,8 +78,7 @@ input[type='submit'] {
   align-items: center;
   justify-content: center;
   transition: all 0.3s linear;
-
-  margin: 0 auto;
+  margin-right: auto;
 
   color: var(--black);
   background: var(--clr-primary-2);
@@ -98,21 +93,36 @@ input[type='submit']:hover {
   background: var(--clr-primary-1);
   border-color: var(--clr-highlight);
 }
-
 input[type='submit']:focus-visible {
   color: var(--clr-highlight);
   background: var(--clr-primary-1);
   border-color: transparent;
 }
-
-input::placeholder {
-  color: #495e57a8;
-}
-
+input:invalid,
+input::placeholder,
 select:invalid {
-  color: var(--clr-primary-1);
-  color: #495e57a8;
+  color: var(--gray);
 }
-option {
-  color: red;
+
+label[data-required] {
+  position: relative;
+}
+label[data-required]:after {
+  color: var(--clr-secondary-1);
+  margin-left: 3px;
+  content: '*';
+}
+
+@media (min-width: 860px) {
+  .book_a_table {
+    justify-content: var(--justify-content);
+    flex-wrap: wrap;
+    display: flex;
+    padding-block-start: 156.66px;
+    padding-block-end: 124px;
+  }
+  .heading svg,
+  .heading img {
+    display: inline-block;
+  }
 }

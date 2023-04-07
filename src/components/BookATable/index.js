@@ -1,17 +1,20 @@
 import Block from '../Block'
 import styles from './index.module.css'
 import { useBookingContext } from '../../context/booking-context'
+import LittleLemonChicago from '../LittleLemonChicago'
 
+import bookingImage from '../../assets/book.png'
 const BookATable = () => {
   const {
-    message,
-    table:{resDate, resTime, guests, occasion},
+    response: { type, msg },
+    table: { resDate, resTime, guests, occasion },
     updateResDate,
     updateResTime,
     updateGuests,
     updateOccasion,
     availableTimes,
-    endDate, startDate,
+    endDate,
+    startDate,
     updateTimes,
   } = useBookingContext()
 
@@ -20,43 +23,28 @@ const BookATable = () => {
     updateTimes({ resDate, resTime, guests, occasion })
   }
 
-  const handleDateChange = e => {
-    let d = e.target.value
-    updateResDate(d)
-  }
-  const handleTimeChange = e => {
-    let t = e.target.value
-    updateResTime(t)
-  }
-  const handleGuestsChange = e => {
-    let num = e.target.value
-    updateGuests(num)
-  }
-  const handleOccasionChange = e => {
-    let o = e.target.value
-    updateOccasion(o)
-  }
-
   return (
-    <Block bgColor={'var(--almost-black)'}>
+    <Block bgColor={'var(--clr-primary-1)'}>
       <article className={styles.book_a_table}>
-        <section>
-          <h2>Book A Table</h2>
-          <p className={styles.booking_message}>{message}</p>
-        </section>
-        <section>
+    <div  className={styles.heading}>
+    <LittleLemonChicago className={styles.img} color1="var(--clr-primary-2)"/>
+    <div className={styles.img}>
+      <img src={bookingImage}alt=""/>
+    </div>
+    </div>
+        <>
           <form className={styles.form} onSubmit={handleSubmit}>
+    <h3>Book A Table</h3>
             <div>
-              <label htmlFor="resDate" className="bold-title">
-                Reservation Date
+              <label data-required htmlFor="resDate" className="bold-title">
+                Select Date
               </label>
               <input
-                className={styles.input}
                 id="resDate"
                 name="resDate"
                 type="date"
                 value={resDate}
-                onChange={handleDateChange}
+                onChange={updateResDate}
                 min={startDate}
                 max={endDate}
                 required
@@ -64,20 +52,17 @@ const BookATable = () => {
             </div>
 
             <div className={styles.styleSelect}>
-              <label htmlFor="resTime" className="bold-title">
-                Reservation Time
+              <label data-required htmlFor="resTime" className="bold-title">
+                Select Time
               </label>
               <select
-                className={`${styles.input}`}
                 id="resTime"
                 name="resTime"
                 value={resTime}
-                onChange={handleTimeChange}
+                onChange={updateResTime}
                 required
               >
-                <option disabled hidden value="">
-                  Select a time
-                </option>
+                <option disabled hidden value=""></option>
                 {availableTimes?.map(({ time, dates }) => {
                   return (
                     <option key={time} value={time}>
@@ -89,23 +74,19 @@ const BookATable = () => {
             </div>
 
             <div>
-              <label htmlFor="guests" className="bold-title">
+              <label data-required htmlFor="guests" className="bold-title">
                 Number of guests
               </label>
-              <span className={styles.number_wrapper}>
                 <input
                   id="guests"
                   name="guests"
                   type="number"
-                  placeholder="1 - 10"
                   min="1"
                   max="10"
                   value={guests}
-                  onChange={handleGuestsChange}
+                  onChange={updateGuests}
                   required
-                  className={styles.input}
                 />
-              </span>
             </div>
             <div className={styles.styleSelect}>
               <label htmlFor="occasion" className="bold-title">
@@ -116,21 +97,22 @@ const BookATable = () => {
                 id="occasion"
                 name="occasion"
                 value={occasion}
-                onChange={handleOccasionChange}
-                required
+                onChange={updateOccasion}
               >
-                <option disabled hidden value="">
-                  Select Occasion
-                </option>
-                <option value="none">No Occasion</option>
+                <option disabled hidden value=""></option>
                 <option value="Birthday">Birthday</option>
-                <option value="anniversary">Anniversary</option>
+                <option value="Anniversary">Anniversary</option>
                 <option value="Engagement">Engagement</option>
+                <option value="None">No Occasion</option>
               </select>
             </div>
-            <div><input type="submit" value="Book Table" /></div>
+            <div>
+
+          <p className={`${styles.message} ${styles[type]}`}> {msg} </p>
+              <input type="submit" value="Book Table" />
+            </div>
           </form>
-        </section>
+    </>
       </article>
     </Block>
   )
