@@ -29,7 +29,7 @@ const MenuItem = ({
         <div className={styles.menuItem_details}>
           <div className={styles.menuItem_details_header}>
             <h5>{title}</h5>
-            <p className="txt-highlight">${price}</p>
+            <p className="highlight">${price}</p>
           </div>
 
           <div className={styles.menuItem_details_description}>

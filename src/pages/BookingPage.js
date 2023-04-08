@@ -1,11 +1,11 @@
-import BookATable from '../components/BookATable'
+import Bookings from '../components/Bookings'
 import Testimonials from '../components/Testimonials'
 import About from '../components/About'
 
 const BookingPage = () => {
   return (
     <>
-      <BookATable />
+      <Bookings />
       <Testimonials />
       <About/>
     </>

@@ -1,0 +1,39 @@
+.bookings {
+  padding-block-start: 15px;
+  padding-block-end: 2rem;
+  display: flex;
+}
+.bookings h3 {
+  color: var(--clr-primary-2);
+  padding-block-start: 2rem;
+  width: 100%;
+}
+.bookings svg,
+.bookings img {
+  display: none;
+}
+.bookings_box {
+  position: relative;
+}
+.msg {
+  position: absolute;
+}
+.success {
+  color: var(--clr-secondary-1);
+}
+.err {
+  color: red;
+}
+@media (min-width: 860px) {
+  .bookings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: var(--justify-content);
+    padding-block-start: 78.33px;
+    padding-block-end: 62px;
+  }
+  .bookings svg,
+  .bookings img {
+    display: inline-block;
+  }
+}

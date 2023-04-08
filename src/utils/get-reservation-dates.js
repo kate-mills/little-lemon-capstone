@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 
-const [weekDay, mo, dt, yr, time] = ((new Date()).toString()).split(' ')
+const [yr, mo, dt] = new Date().toJSON().split('T')[0].split('-')
 
-const todayString = new Date(`${mo} ${dt}, ${yr} ${time}`);
+const todayString = new Date(`${yr}-${mo}-${dt}`)
+
+
 
 const createEventDate = (days_from_today=0) => {
   let [eventDate, eventTime] = (
@@ -14,13 +16,15 @@ const createEventDate = (days_from_today=0) => {
 const startDate = createEventDate(1)
 const endDate = createEventDate(14)
 
-const initTimes = [ '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '05:00 PM', '06:00 PM', '07:00 PM' ]
+const initTimes = [ '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM', '06:00 PM', '07:00 PM' ]
 
+//2023-04-21
 
-const availableReservations = Array.from({length: 7}, (_, idx) =>{
-  let avail = new Date(todayString.setDate(Number(dt) + idx + 1))
-  return {id:idx + 1, dt: avail,  times: [...initTimes]  }
+const availableReservations = Array.from({length: 14}, (_, idx) =>{
+  let eventDate = new Date(todayString.setDate(Number(dt) + idx + 1)).toJSON().split('T')[0]
+  return {id:idx + 1, dt: eventDate,  times: [...initTimes]  }
 })
+
 export {
   startDate,
   endDate,

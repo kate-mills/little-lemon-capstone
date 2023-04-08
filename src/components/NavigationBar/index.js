@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import { websiteLinks } from '../../constants/links'
 import styles from './index.module.css'
 
-const Header = () => {
+const NavigationBar = () => {
   return (
     <Block bgColor={'var(--clr-highlight)'}>
       <header className={styles.header}>
@@ -28,4 +28,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default NavigationBar 
