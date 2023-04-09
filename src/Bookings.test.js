@@ -4,6 +4,8 @@ import { BookingProvider } from './context/book-a-table'
 import {BookingPage} from './pages/index.js'
 import BookingForm from "./components/Bookings/BookingsForm";
 import {endDate} from './utils/get-reservation-dates.js'
+import {fetchAPI} from './api'
+
 
 
 test('Static text book a table being rendered in the Bookings component', () => {
@@ -20,6 +22,7 @@ test('Static text book a table being rendered in the Bookings component', () => 
 
 test('BookingsForm component can be submitted by the user', () => {
 
+  const [time] = fetchAPI(new Date(endDate))
   const handleSubmit = jest.fn();
 
   render(
@@ -36,7 +39,7 @@ test('BookingsForm component can be submitted by the user', () => {
 
   expect(submitButton).toHaveAttribute("disabled")
 
-  fireEvent.change(timeInput, {target: {value: "06:00 PM"}})
+  fireEvent.change(timeInput, {target: {value: time}})
   fireEvent.change(dateInput, {target: {value: endDate}})
   fireEvent.change(guestInput, {target: {value: 3}})
 
