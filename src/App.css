@@ -185,4 +185,10 @@ address * {
   color: var(--clr-primary-1);
 }
 
-
+.form{
+  display: grid;
+  gap: 20px;
+}
+.form.on-dark label{
+  color: var(--clr-highlight);
+}

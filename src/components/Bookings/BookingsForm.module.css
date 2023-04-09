@@ -1,7 +1,0 @@
-.form{
-  display:grid;
-  gap: 20px;
-}
-.form label{
-  color: var(--clr-highlight);
-}

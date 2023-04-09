@@ -7,6 +7,7 @@ import {
   AboutPage,
   MenuPage,
   BookingPage,
+  ConfirmedBookingPage,
   OrderOnlinePage,
   LoginPage,
   ErrorPage,
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<AboutPage />}></Route>
           <Route path="/menu" element={<MenuPage />}></Route>
           <Route path="/booking" element={<BookingPage />} ></Route>
+          <Route path="/booking-confirmed" element={<ConfirmedBookingPage />} ></Route>
           <Route path="/order-online" element={<OrderOnlinePage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>

@@ -4,7 +4,7 @@ import { useBookingContext } from '../../context/book-a-table'
 import LittleLemonChicago from '../LittleLemonChicago'
 
 import imgSrc from '../../assets/book.png'
-import BookingsForm from './BookingsForm'
+import BookingsForm from './Form'
 
 const BookATable = () => {
   const {

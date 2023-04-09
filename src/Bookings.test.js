@@ -2,7 +2,7 @@ import { render, fireEvent, screen } from "@testing-library/react";
 
 import { BookingProvider } from './context/book-a-table'
 import {BookingPage} from './pages/index.js'
-import BookingForm from "./components/Bookings/BookingsForm";
+import BookingForm from "./components/Bookings/Form.js";
 import {endDate} from './utils/get-reservation-dates.js'
 import {fetchAPI} from './api'
 

@@ -1,7 +1,6 @@
 import { useBookingContext } from '../../context/book-a-table'
 
-import styles from './BookingsForm.module.css'
-const Form = (props) => {
+const BookingForm = (props) => {
   const {
     table: { resDate, resTime, guests, occasion },
     updateResDate,
@@ -22,7 +21,7 @@ const Form = (props) => {
   }
 
   return (
-    <form id='bookings' className={styles.form} onSubmit={handleSubmit}>
+    <form id='bookings' className="form on-dark" onSubmit={handleSubmit}>
 
       {/* Booking Date */}
         <label data-required htmlFor="resDate" className="bold-title">
@@ -78,7 +77,7 @@ const Form = (props) => {
 
       {/* Booking Occasion */}
         <label htmlFor="occasion" className="bold-title">
-          <div className={styles.occasion} /> Occasion
+          Occasion
         </label>
         <select
           id="occasion"
@@ -102,4 +101,4 @@ const Form = (props) => {
   )
 }
 
-export default Form 
+export default BookingForm
