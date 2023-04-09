@@ -11,11 +11,11 @@ import {
   LoginPage,
   ErrorPage,
 } from './pages'
-import { Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <NavigationBar />
       <main>
         <Routes>
@@ -29,7 +29,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
 

@@ -1,10 +1,8 @@
 import { createContext, useContext, useReducer, useEffect } from 'react'
 import reducer from './reducer'
 
-import {
-  availableTimes,
-} from '../../constants/available-reservation-times'
-import {startDate, endDate, availableReservations} from '../../utils/get-reservation-dates'
+import {fetchAPI } from '../../api'
+import {startDate, endDate } from '../../utils/get-reservation-dates'
 
 import {
   CLEAR_FORM,
@@ -12,8 +10,9 @@ import {
   UPDATE_RES_TIME,
   UPDATE_GUESTS,
   UPDATE_OCCASION,
-  SUBMIT_FORM,
   CLEAR_MESSAGE,
+  FETCH_API,
+  SUBMIT_API,
 } from './actions'
 
 import { checkWindow } from '../../utils/isBrowser'
@@ -33,12 +32,12 @@ const getLocalUserReservations = () => {
 const initialState = {
   loading: false,
   response: { type:'', msg: '' },
-  table: { resDate: '', resTime: '', guests: '', occasion: '' },
+  table: { resDate: startDate, resTime: '', guests: '', occasion: '' },
   userReservations: getLocalUserReservations(),
-  availableTimes,
+  availableTimes: [],
   startDate,
   endDate,
-  availableReservations,
+  initTimes: [],
 }
 
 const BookingContext = createContext()
@@ -46,8 +45,8 @@ const BookingContext = createContext()
 export const BookingProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const updateTimes = (data = {}) => {
-    dispatch({ type: SUBMIT_FORM, payload: { data } })
+  const submitAPI  = (data = {}) => {
+    dispatch({ type: SUBMIT_API, payload: { data } })
   }
   const updateResDate = e => {
     dispatch({ type: UPDATE_RES_DATE, payload: { resDate: e.target.value } })
@@ -75,6 +74,11 @@ export const BookingProvider = ({ children }) => {
     )
   }, [state.userReservations])
 
+  useEffect(()=>{
+    let apiTimes = fetchAPI(new Date(state.table.resDate))
+    dispatch({type: FETCH_API, payload: {times: [...apiTimes]}})
+  }, [state.table.resDate])
+
 
   return (
     <BookingContext.Provider
@@ -84,9 +88,9 @@ export const BookingProvider = ({ children }) => {
         updateResTime,
         updateGuests,
         updateOccasion,
-        updateTimes,
         clearBookingForm,
-          clearResultMessage,
+        clearResultMessage,
+        submitAPI,
       }}
     >
       {children}

@@ -1,7 +1,7 @@
 import { useBookingContext } from '../../context/book-a-table'
 
 import styles from './BookingsForm.module.css'
-const BookingForm = (props) => {
+const Form = (props) => {
   const {
     table: { resDate, resTime, guests, occasion },
     updateResDate,
@@ -102,4 +102,4 @@ const BookingForm = (props) => {
   )
 }
 
-export default BookingForm
+export default Form 

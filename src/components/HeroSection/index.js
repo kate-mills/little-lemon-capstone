@@ -18,7 +18,7 @@ const Hero = ({bgColor='var(--clr-primary-1)'}) => {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist.
           </p>
-          <ButtonLink text="Reserve a Table" to="/reserve-a-table" />
+          <ButtonLink text="Reserve a Table" to="/booking" />
         </div>
         <div className={styles.heroImg}>
           <img src={hero} alt="Server holding platter of food" />

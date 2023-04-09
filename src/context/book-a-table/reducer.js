@@ -4,19 +4,30 @@ import {
   UPDATE_RES_TIME,
   UPDATE_GUESTS,
   UPDATE_OCCASION,
-  SUBMIT_FORM,
   CLEAR_MESSAGE,
   CLEAR_FORM,
+  FETCH_API,
+  SUBMIT_API,
 } from './actions'
 
+import { convertTime } from '../../utils/military-to-standard-time'
+
 const booking_reducer = (state, action) => {
+  if (action.type === FETCH_API) {
+    const { times } = action.payload
+    return {
+      ...state,
+      initTimes: [...times],
+      availableTimes: [...times],
+    }
+  }
+
   if (action.type === CLEAR_FORM) {
     return {
       ...state,
       table: { resDate: '', resTime: '', guests: '', occasion: '' },
     }
   }
-
   if (action.type === UPDATE_RES_DATE) {
     const { resDate } = action.payload
     return {
@@ -49,60 +60,34 @@ const booking_reducer = (state, action) => {
     }
   }
 
-  if (action.type === SUBMIT_FORM) {
+  if (action.type === SUBMIT_API) {
     const { data } = action.payload
+
     const { resTime, resDate, guests, occasion } = data
 
-    const tempTime = state.availableTimes.find(avail => avail.time === resTime)
-    const dateTaken = tempTime.dates.find(d => d === resDate)
-    if (dateTaken) {
-      return {
-        ...state,
-        response: {
-          type: 'err',
-          msg: `Sorry! this date/time isn't free.`,
-        },
-      }
-    }
+    //const [hour, min] = resTime.split(':')
+
+    //let isMorning = Number(hour) < 13
+    //let am = Number(hour) - 12 > 0
+
+    let dTime = convertTime(resTime)
+    //let displayTime = isMorning ? resTime : `${Number(hour) - 12}:${min}`
 
 
-
-    else if (tempTime) {
-
-      const tempAvailable = state.availableTimes.map(({ time, dates }) => {
-        if (time === resTime) {
-          return { time, dates: [...dates, resDate] }
-        }
-        return { time, dates }
-      })
-
-
-      let [yr, mo, date] = resDate.split('-')
-      let success = {
-        msg: `Your booked! ${mo}-${date} at ${resTime}!`,
+    return {
+      ...state,
+      response: {
         type: 'success',
-      }
-
-      return {
-        ...state,
-        availableTimes: tempAvailable,
-        userReservations: [
-          ...state.userReservations,
-          { resDate, resTime, guests, occasion },
-        ],
-        response: success,
-        table: { resDate: '', resTime: '', guests: '', occasion: '' },
-      }
+        msg: `Your Booked on ${resDate} at ${dTime}`,
+      },
     }
-
-    return { ...state }
   }
 
   if (action.type === CLEAR_MESSAGE) {
     console.log('CLEAR_MESSAGE action called')
     return {
       ...state,
-      response: { type: '', msg: '' }
+      response: { type: '', msg: '' },
     }
   }
 
@@ -110,25 +95,3 @@ const booking_reducer = (state, action) => {
 }
 
 export default booking_reducer
-
-
-/*
-
-const d = new Date()
-console.log(d.getMonth()) //3
-
-const [weekDay, mo, dt, yr, time] = (d.toString()).split(' ')
-
-console.log(mo)
-const e = new Date(`${mo} ${dt}, ${yr} ${time}`);
-
-e.setDate(5);
-console.log(e.getDate());
-console.log()
-
-e.setDate(32);
-
-console.log(e.getDate());
-console.log(e.getMonth())
-
-*/
