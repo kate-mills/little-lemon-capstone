@@ -65,20 +65,22 @@ const booking_reducer = (state, action) => {
 
     const { resTime, resDate, guests, occasion } = data
 
-    //const [hour, min] = resTime.split(':')
-
-    //let isMorning = Number(hour) < 13
-    //let am = Number(hour) - 12 > 0
-
-    let dTime = convertTime(resTime)
-    //let displayTime = isMorning ? resTime : `${Number(hour) - 12}:${min}`
-
-
+    let {stdTime, valid} = convertTime(resTime)
+    
+    if(!valid){
+      return {
+        ...state,
+        response:{
+          type: 'error',
+          msg: `Sorry, this time does not exist`
+        }
+      }
+    }
     return {
       ...state,
       response: {
         type: 'success',
-        msg: `Your Booked on ${resDate} at ${dTime}`,
+        msg: `Your Booked on ${resDate} at ${stdTime}`,
       },
     }
   }
