@@ -2,7 +2,7 @@ import { useBookingContext } from '../../context/book-a-table'
 
 const BookingForm = (props) => {
   const {
-    table: { resDate, resTime, guests, occasion },
+    formData: { resDate, resTime, guests, occasion },
     updateResDate,
     updateResTime,
     updateGuests,
@@ -10,14 +10,14 @@ const BookingForm = (props) => {
     availableTimes,
     endDate,
     startDate,
-    submitAPI,
+    submitForm,
   } = useBookingContext()
 
   const isDisabled = !resDate || !resTime || !Number(guests) || (Number(guests) >10)
 
   const handleSubmit = e => {
     e.preventDefault()
-    submitAPI({ resDate, resTime, guests, occasion })
+    submitForm({ resDate, resTime, guests, occasion })
   }
 
   return (

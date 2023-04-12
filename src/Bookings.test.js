@@ -1,8 +1,9 @@
 import { render, fireEvent, screen } from "@testing-library/react";
 
 import { BookingProvider } from './context/book-a-table'
-import {BookingPage} from './pages/index.js'
-import BookingForm from "./components/Bookings/Form.js";
+import {BookingPage, ConfirmedBookingPage} from './pages/index.js'
+import BookingsForm from "./components/Bookings/Form.js";
+import BookingsConfirmed from "./components/Bookings/Confirmed.js";
 import {endDate} from './utils/get-reservation-dates.js'
 import {fetchAPI} from './api'
 
@@ -20,14 +21,15 @@ test('Static text book a table being rendered in the Bookings component', () => 
 });
 
 
-test('BookingsForm component can be submitted by the user', () => {
+test('BookingsForm component can be submitted by the user', async () => {
 
   const [time] = fetchAPI(new Date(endDate))
   const handleSubmit = jest.fn();
 
   render(
     <BookingProvider>
-      <BookingForm onSubmit={handleSubmit} />
+      <BookingsForm onSubmit={handleSubmit} />
+      <ConfirmedBookingPage/>
     </BookingProvider>
   );
   const submitButton = screen.getByRole("button")
@@ -46,5 +48,8 @@ test('BookingsForm component can be submitted by the user', () => {
   expect(submitButton).not.toHaveAttribute("disabled")
   expect(handleSubmit).not.toHaveBeenCalled()
   fireEvent.submit(submitButton)
-});
 
+  // redirects to confirmed booking page
+  const confirmedHeading = screen.getByText(/Your Booked on/i);
+  expect(confirmedHeading).toBeDefined();
+});

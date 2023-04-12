@@ -1,10 +1,9 @@
-import Block from '../components/Block'
-const BookingPage = () => {
+import BookingConfirmed from '../components/Bookings/Confirmed'
+
+const ConfirmedBookingPage = (props) => {
   return (
-    <Block>
-      <h1>hi</h1>
-    </Block>
+    <BookingConfirmed/>
   )
 }
 
-export default BookingPage
+export default ConfirmedBookingPage

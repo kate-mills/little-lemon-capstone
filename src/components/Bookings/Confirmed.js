@@ -1,15 +1,11 @@
-import * as React from "react";
 import Block from '../Block'
+
 import styles from './index.module.css'
 import LittleLemonChicago from '../LittleLemonChicago'
+import { useBookingContext } from '../../context/book-a-table'
 
-import imgSrc from '../../assets/book.png'
-import BookingsForm from './Form'
-
-
-const BookATable = () => {
-  
-
+const BookATableConfirmation = props => {
+  const { lastTableBooked } = useBookingContext()
   return (
     <Block bgColor={'var(--clr-primary-1)'}>
       <article data-testid="book-a-table" className={styles.bookings}>
@@ -18,17 +14,14 @@ const BookATable = () => {
             className={styles.img}
             color1="var(--clr-highlight)"
           />
-          <div className={styles.img}>
-            <img src={imgSrc} alt="" />
-          </div>
         </div>
-        <div className={styles.bookings_box}>
-          <h3>Book A Table</h3>
-          <BookingsForm />
+        <div>
+          {<h3>Your Table Is Booked</h3>}
+          <p className={`${styles.msg}`}>{lastTableBooked?.msg}</p>
         </div>
       </article>
     </Block>
   )
 }
 
-export default BookATable
+export default BookATableConfirmation

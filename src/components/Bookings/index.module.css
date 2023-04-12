@@ -15,14 +15,18 @@
 .bookings_box {
   position: relative;
 }
-.msg {
-  position: absolute;
-}
 .success {
   color: var(--clr-secondary-1);
 }
-.err {
-  color: red;
+.err { color: red; }
+.msg{
+  color: var(--white);
+}
+
+.userReservations{
+  display: flex;
+  justify-content: space-between;
+  color: var(--white);
 }
 @media (min-width: 860px) {
   .bookings {

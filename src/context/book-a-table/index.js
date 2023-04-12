@@ -1,23 +1,24 @@
 import { createContext, useContext, useReducer, useEffect } from 'react'
 import reducer from './reducer'
 
-import {fetchAPI } from '../../api'
-import {startDate, endDate } from '../../utils/get-reservation-dates'
+import { fetchAPI } from '../../api'
+import { startDate, endDate } from '../../utils/get-reservation-dates'
 
 import {
-  CLEAR_FORM,
+  FETCH_API,
   UPDATE_RES_DATE,
   UPDATE_RES_TIME,
   UPDATE_GUESTS,
   UPDATE_OCCASION,
+  SUBMIT_BOOKING_FORM,
+  SETUP_BOOKING_BEGIN,
+  CLEAR_FORM,
   CLEAR_MESSAGE,
-  FETCH_API,
-  SUBMIT_API,
 } from './actions'
 
 import { checkWindow } from '../../utils/isBrowser'
 
-const getLocalUserReservations = () => {
+const getUserReservations = () => {
   if (checkWindow()) {
     let userReservations = localStorage.getItem('ll-user-reservations')
     if (userReservations) {
@@ -29,15 +30,27 @@ const getLocalUserReservations = () => {
   return []
 }
 
+const getLastBooked = () => {
+  if (checkWindow()) {
+    let lastTableBooked = localStorage.getItem('ll-last-booked')
+    if (lastTableBooked) {
+      return JSON.parse(localStorage.getItem('ll-last-booked'))
+    } else {
+      return []
+    }
+  }
+  return []
+}
+
 const initialState = {
   loading: false,
-  response: { type:'', msg: '' },
-  table: { resDate: startDate, resTime: '', guests: '', occasion: '' },
-  userReservations: getLocalUserReservations(),
+  lastTableBooked: getLastBooked(),
+  response: { type: '', msg: '' },
+  formData: { resDate: startDate, resTime: '', guests: '', occasion: '' },
+  userReservations: getUserReservations(),
   availableTimes: [],
   startDate,
   endDate,
-  initTimes: [],
 }
 
 const BookingContext = createContext()
@@ -45,9 +58,6 @@ const BookingContext = createContext()
 export const BookingProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const submitAPI  = (data = {}) => {
-    dispatch({ type: SUBMIT_API, payload: { data } })
-  }
   const updateResDate = e => {
     dispatch({ type: UPDATE_RES_DATE, payload: { resDate: e.target.value } })
   }
@@ -60,6 +70,11 @@ export const BookingProvider = ({ children }) => {
   const updateOccasion = e => {
     dispatch({ type: UPDATE_OCCASION, payload: { occasion: e.target.value } })
   }
+  const submitForm = async (formData = {}) => {
+    dispatch({ type: SETUP_BOOKING_BEGIN })
+    dispatch({ type: SUBMIT_BOOKING_FORM, payload: { data: formData } })
+  }
+
   const clearBookingForm = () => {
     dispatch({ type: CLEAR_FORM })
   }
@@ -74,11 +89,17 @@ export const BookingProvider = ({ children }) => {
     )
   }, [state.userReservations])
 
-  useEffect(()=>{
-    let apiTimes = fetchAPI(new Date(state.table.resDate))
-    dispatch({type: FETCH_API, payload: {times: [...apiTimes]}})
-  }, [state.table.resDate])
+  useEffect(() => {
+    localStorage.setItem(
+      'll-last-booked',
+      JSON.stringify(state.lastTableBooked)
+    )
+  }, [state.lastTableBooked])
 
+  useEffect(() => {
+    let apiTimes = fetchAPI(new Date(state.formData.resDate))
+    dispatch({ type: FETCH_API, payload: { times: [...apiTimes] } })
+  }, [state.formData.resDate])
 
   return (
     <BookingContext.Provider
@@ -90,7 +111,8 @@ export const BookingProvider = ({ children }) => {
         updateOccasion,
         clearBookingForm,
         clearResultMessage,
-        submitAPI,
+        getUserReservations,
+        submitForm,
       }}
     >
       {children}

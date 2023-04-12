@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
 import {
+  FETCH_API,
   UPDATE_RES_DATE,
   UPDATE_RES_TIME,
   UPDATE_GUESTS,
   UPDATE_OCCASION,
-  CLEAR_MESSAGE,
+  SETUP_BOOKING_BEGIN,
+  SUBMIT_BOOKING_FORM,
   CLEAR_FORM,
-  FETCH_API,
-  SUBMIT_API,
+  CLEAR_MESSAGE,
 } from './actions'
 
 import { convertTime } from '../../utils/military-to-standard-time'
@@ -25,14 +26,14 @@ const booking_reducer = (state, action) => {
   if (action.type === CLEAR_FORM) {
     return {
       ...state,
-      table: { resDate: '', resTime: '', guests: '', occasion: '' },
+      formData: { resDate: '', resTime: '', guests: '', occasion: '' },
     }
   }
   if (action.type === UPDATE_RES_DATE) {
     const { resDate } = action.payload
     return {
       ...state,
-      table: { ...state.table, resDate },
+      formData: { ...state.formData, resDate },
     }
   }
 
@@ -40,7 +41,7 @@ const booking_reducer = (state, action) => {
     const { resTime } = action.payload
     return {
       ...state,
-      table: { ...state.table, resTime },
+      formData: { ...state.formData, resTime },
     }
   }
 
@@ -48,7 +49,7 @@ const booking_reducer = (state, action) => {
     const { guests } = action.payload
     return {
       ...state,
-      table: { ...state.table, guests },
+      formData: { ...state.formData, guests },
     }
   }
 
@@ -56,28 +57,50 @@ const booking_reducer = (state, action) => {
     const { occasion } = action.payload
     return {
       ...state,
-      table: { ...state.table, occasion },
+      formData: { ...state.formData, occasion },
     }
   }
 
-  if (action.type === SUBMIT_API) {
+  if (action.type === SUBMIT_BOOKING_FORM) {
     const { data } = action.payload
 
-    const { resTime, resDate, guests, occasion } = data
+    const { resTime, resDate, guests, occasion } = data 
 
-    let {stdTime, valid} = convertTime(resTime)
-    
-    if(!valid){
+    let { stdTime, valid } = convertTime(resTime)
+
+    if (!valid) {
       return {
         ...state,
-        response:{
+        loading: false,
+        response: {
           type: 'error',
-          msg: `Sorry, this time does not exist`
-        }
+          msg: `Sorry, this time does not exist`,
+        },
       }
     }
+
+    let tableId = `g${guests}--${resDate}--${resTime}--o${occasion}`
+
+    let updatedReservations = [...state.userReservations]
+    let tableBooked = [...updatedReservations].find(
+      formData => formData.tableId === tableId
+    )
+    let [yr, mo, dt] = resDate.split('-')
+
+    if (!tableBooked) {
+      updatedReservations = [
+        { tableId, stdTime, resTime, resDate, guests, occasion },
+        ...updatedReservations,
+      ]
+    }
+
     return {
       ...state,
+      lastTableBooked: {
+        ...data,
+        msg: `Your Booked on ${mo}-${dt}-${yr} at ${stdTime}`,
+      },
+      userReservations: [...updatedReservations],
       response: {
         type: 'success',
         msg: `Your Booked on ${resDate} at ${stdTime}`,
@@ -85,11 +108,18 @@ const booking_reducer = (state, action) => {
     }
   }
 
+  if (action.type === SETUP_BOOKING_BEGIN) {
+    return { ...state, loading: true, }
+  }
+
+
   if (action.type === CLEAR_MESSAGE) {
-    console.log('CLEAR_MESSAGE action called')
     return {
       ...state,
-      response: { type: '', msg: '' },
+      response: {
+        type: '',
+        msg: '',
+      },
     }
   }
 
