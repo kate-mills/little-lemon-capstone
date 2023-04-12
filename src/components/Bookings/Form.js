@@ -86,10 +86,10 @@ const BookingForm = (props) => {
           onChange={updateOccasion}
         >
           <option disabled hidden value=""></option>
-          <option value="Birthday">Birthday</option>
+          <option value="No Occasion">No Occasion</option>
           <option value="Anniversary">Anniversary</option>
+          <option value="Birthday">Birthday</option>
           <option value="Engagement">Engagement</option>
-          <option value="None">No Occasion</option>
         </select>
 
 
