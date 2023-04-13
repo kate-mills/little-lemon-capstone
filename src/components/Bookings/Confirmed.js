@@ -16,7 +16,7 @@ const BookATableConfirmation = props => {
           />
         </div>
         <div>
-          {<h3>Your Table Is Booked</h3>}
+          {<h2>Your Table Is Booked</h2>}
           <p className={styles.msg}>{lastTableBooked?.msg}</p>
         </div>
       </article>

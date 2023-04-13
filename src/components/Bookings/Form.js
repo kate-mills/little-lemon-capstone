@@ -29,7 +29,7 @@ const BookingForm = props => {
       resDate: Yup.date()
         .min(start.iso, `Date can not be before ${start.display}`)
         .max(end.iso, `Date can not be after ${end.display}`)
-        .required('Data is required'),
+        .required('Date is required'),
       resTime: Yup.string()
         .oneOf([...availableTimes], 'Invalid Booking Time')
         .required('Time is required'),
@@ -85,9 +85,9 @@ const BookingForm = props => {
             value={formik.values.resDate}
           />
           <div className="error">
-            {formik.values.resDate && formik.errors.resDate
+            {!!formik.values.resDate && formik.errors.resDate
               ? formik.errors.resDate
-              : null}
+              : formik.errors.resDate}
           </div>
         </div>
 
@@ -184,8 +184,8 @@ const BookingForm = props => {
         </div>
 
         {/* Submit Form*/}
-        <div className="form-control submit">
-          <div>
+        <div tabIndex={0} className="form-control submit">
+          <div className="no-label"/>
             <input
               aria-label="On Click"
               type="submit"
@@ -193,7 +193,6 @@ const BookingForm = props => {
               aria-disabled={isDisabled || !formik.isValid}
               disabled={isDisabled || !formik.isValid}
             />
-          </div>
         </div>
       </form>
     </>

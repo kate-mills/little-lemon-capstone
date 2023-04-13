@@ -16,11 +16,11 @@ const BookATable = () => {
             color1="var(--clr-highlight)"
           />
           <div className={styles.img}>
-            <img src={imgSrc} alt="" />
+            <img src={imgSrc} alt="Chef making a salad" />
           </div>
         </div>
         <div className={styles.bookings_box}>
-          <h3>Book A Table</h3>
+          <h2>Book A Table</h2>
           <BookingsForm />
         </div>
       </article>

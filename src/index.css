@@ -61,11 +61,9 @@ input[type='submit']:disabled {
   border-color: transparent;
   cursor: not-allowed;
 }
-/* End Submit Button */
-
 .form {
   display: grid;
-  gap: 20px;
+  gap: 30px;
 }
 .form-control {
   display: flex;
@@ -80,10 +78,15 @@ input[type='submit']:disabled {
   bottom: -27%;
   right: 6px;
 }
+.form-control.submit div.no-label{
+  background: red;
+  width: 130px;
+}
 .form label {
   color: white;
   display: inline-block;
-  padding-inline-end: 1rem;
+  width: 130px;
+  max-width: 130px;
 }
 label[data-required]:after {
   color: var(--clr-secondary-1);
