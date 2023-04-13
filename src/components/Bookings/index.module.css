@@ -18,9 +18,9 @@
 .success {
   color: var(--clr-secondary-1);
 }
-.err { color: red; }
-.msg{
-  color: var(--white);
+.msg{ color: var(--white); }
+.error{
+  color: var(--clr-secondary-1);
 }
 
 .userReservations{

@@ -7,19 +7,9 @@ import {
 
 import { fetchAPI } from '../../api'
 
-//import { startDate, endDate, times } from '../../utils/get-reservation-dates'
-
 import { convertTime } from '../../utils/military-to-standard-time'
 
 const booking_reducer = (state, action) => {
-  /*if (action.type === FETCH_API) {
-    const { times } = action.payload
-    return {
-      ...state,
-      initTimes: [...times],
-      availableTimes: [...times],
-    }
-  }*/
 
   if (action.type === FETCH_API) {
     const { resDate } = action.payload
@@ -32,19 +22,16 @@ const booking_reducer = (state, action) => {
   }
 
   if (action.type === RESET_FORM) {
-    const {initStart, initEnd, initTimes} = action.payload
     return {
       ...state,
       formData: {
-        resDate: initStart,
+        resDate: state.initDateTimes.start.iso,
         resTime: '',
         guests: '',
         occasion: '',
       },
       response: {type: '', msg: ''},
-      startDate: initStart,
-      endDate: initEnd,
-      availableTimes: initTimes,
+      availableTimes: [...state.initDateTimes.initTimes],
     }
   }
 

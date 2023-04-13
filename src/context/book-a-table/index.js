@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useEffect } from 'react'
 import reducer from './reducer'
 
-import { startDate, endDate, times } from '../../utils/get-reservation-dates'
+import { initDateTimes } from '../../utils/get-reservation-dates'
 
 import { FETCH_API, SUBMIT_FORM, RESET_FORM } from './actions'
 
@@ -35,11 +35,10 @@ const initialState = {
   isLoading: false,
   lastTableBooked: getLastBooked(),
   response: { type: '', msg: '' },
-  formData: { resDate: startDate, resTime: '', guests: '', occasion: '' },
+  formData: { resDate: initDateTimes.start.iso, resTime: '', guests: '', occasion: '' },
   userReservations: getUserReservations(),
-  availableTimes: [...times],
-  startDate,
-  endDate,
+  availableTimes: [...initDateTimes.initTimes],
+  initDateTimes: {...initDateTimes},
 }
 
 const BookingContext = createContext()
@@ -56,14 +55,7 @@ export const BookingProvider = ({ children }) => {
   }
 
   const resetBookingForm = () => {
-    dispatch({
-      type: RESET_FORM,
-      payload: {
-        initStart: startDate,
-        initEnd: endDate,
-        initTimes: [...times],
-      },
-    })
+    dispatch({ type: RESET_FORM })
   }
 
   useEffect(() => {

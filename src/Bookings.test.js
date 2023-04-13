@@ -5,7 +5,7 @@ import { BookingProvider } from './context/book-a-table'
 import { BookingPage, ConfirmedBookingPage } from './pages/index.js'
 import BookingsForm from './components/Bookings/Form.js'
 import BookingsConfirmed from './components/Bookings/Confirmed.js'
-import { endDate } from './utils/get-reservation-dates.js'
+import { initDateTimes } from './utils/get-reservation-dates.js'
 import { fetchAPI } from './api'
 
 test('Static text book a table being rendered in the Bookings component', () => {
@@ -20,7 +20,7 @@ test('Static text book a table being rendered in the Bookings component', () => 
 })
 
 test('BookingsForm component can be submitted by the user', async () => {
-  const [time] = fetchAPI(new Date(endDate))
+  let availableTimes = fetchAPI(new Date(initDateTimes.start.iso))
 
   const handleSubmit = await jest.fn()
 
@@ -41,8 +41,8 @@ test('BookingsForm component can be submitted by the user', async () => {
   expect(submitButton).toHaveAttribute('disabled')
 
   await act(async () => {
-    fireEvent.change(dateInput, { target: { value: endDate } })
-    fireEvent.change(timeInput, { target: { value: time } })
+    fireEvent.change(dateInput, { target: { value: initDateTimes.start.iso } })
+    fireEvent.change(timeInput, { target: { value: availableTimes[0] } })
     fireEvent.change(guestInput, { target: { value: 3 } })
     fireEvent.change(occasionInput, { target: { value: "No Occasion" } })
   })

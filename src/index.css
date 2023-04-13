@@ -10,15 +10,15 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
-  appearance: none;
   outline-width: 0;
   border-radius: 8px;
   padding: 8px 10px 8px 8px;
-  display: block;
-  width: 25em;
+  display: inline-block;
   max-width: 90%;
+  width: 15em;
   border: none;
   border-bottom: 1px solid var(--clr-primary-1);
+  max-height: 40px;
 }
 input[type='number'],
 select {
@@ -27,7 +27,7 @@ select {
 }
 input:invalid,
 input::placeholder,
-select:invalid {
+select[data-invalid] {
   color: var(--gray);
 }
 
@@ -53,7 +53,7 @@ input[type='submit'] {
 input[type='submit']:focus-visible,
 input[type='submit']:hover {
   color: inherit;
-  background: inherit;
+  background: var(--white);
 }
 input[type='submit']:disabled {
   color: var(--gray);
@@ -62,11 +62,34 @@ input[type='submit']:disabled {
   cursor: not-allowed;
 }
 /* End Submit Button */
-label {
+
+.form {
+  display: grid;
+  gap: 20px;
+}
+.form-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+  position: relative;
+}
+.form-control .error {
+  color: var(--clr-secondary-2);
+  position: absolute;
+  bottom: -27%;
+  right: 6px;
+}
+.form label {
+  color: white;
   display: inline-block;
+  padding-inline-end: 1rem;
 }
 label[data-required]:after {
   color: var(--clr-secondary-1);
   margin-left: 3px;
   content: '*';
+}
+label[data-invalid] {
+  color: var(--clr-secondary-2);
 }
