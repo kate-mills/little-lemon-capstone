@@ -1,77 +1,66 @@
 /* eslint-disable no-unused-vars */
 import {
   FETCH_API,
-  UPDATE_RES_DATE,
-  UPDATE_RES_TIME,
-  UPDATE_GUESTS,
-  UPDATE_OCCASION,
-  SETUP_BOOKING_BEGIN,
-  SUBMIT_BOOKING_FORM,
-  CLEAR_FORM,
-  CLEAR_MESSAGE,
+  SUBMIT_FORM,
+  RESET_FORM,
 } from './actions'
+
+import { fetchAPI } from '../../api'
+
+//import { startDate, endDate, times } from '../../utils/get-reservation-dates'
 
 import { convertTime } from '../../utils/military-to-standard-time'
 
 const booking_reducer = (state, action) => {
-  if (action.type === FETCH_API) {
+  /*if (action.type === FETCH_API) {
     const { times } = action.payload
     return {
       ...state,
       initTimes: [...times],
       availableTimes: [...times],
     }
-  }
+  }*/
 
-  if (action.type === CLEAR_FORM) {
-    return {
-      ...state,
-      formData: { resDate: '', resTime: '', guests: '', occasion: '' },
-    }
-  }
-  if (action.type === UPDATE_RES_DATE) {
+  if (action.type === FETCH_API) {
     const { resDate } = action.payload
+    let availableTimes = fetchAPI(new Date(resDate))
     return {
       ...state,
       formData: { ...state.formData, resDate },
+      availableTimes,
     }
   }
 
-  if (action.type === UPDATE_RES_TIME) {
-    const { resTime } = action.payload
+  if (action.type === RESET_FORM) {
+    const {initStart, initEnd, initTimes} = action.payload
     return {
       ...state,
-      formData: { ...state.formData, resTime },
+      formData: {
+        resDate: initStart,
+        resTime: '',
+        guests: '',
+        occasion: '',
+      },
+      response: {type: '', msg: ''},
+      startDate: initStart,
+      endDate: initEnd,
+      availableTimes: initTimes,
     }
   }
 
-  if (action.type === UPDATE_GUESTS) {
-    const { guests } = action.payload
-    return {
-      ...state,
-      formData: { ...state.formData, guests },
-    }
-  }
 
-  if (action.type === UPDATE_OCCASION) {
-    const { occasion } = action.payload
-    return {
-      ...state,
-      formData: { ...state.formData, occasion },
-    }
-  }
+  if (action.type === SUBMIT_FORM) {
+    const { values } = action.payload
 
-  if (action.type === SUBMIT_BOOKING_FORM) {
-    const { data } = action.payload
-
-    const { resTime, resDate, guests, occasion } = data 
+    const { resTime, resDate, guests, occasion } = values 
 
     let { stdTime, valid } = convertTime(resTime)
 
     if (!valid) {
+      console.log('NOT VALID')
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         response: {
           type: 'error',
           msg: `Sorry, this time does not exist`,
@@ -83,7 +72,7 @@ const booking_reducer = (state, action) => {
 
     let updatedReservations = [...state.userReservations]
     let tableBooked = [...updatedReservations].find(
-      formData => formData.tableId === tableId
+      booking  => booking.tableId === tableId
     )
     let [yr, mo, dt] = resDate.split('-')
 
@@ -97,7 +86,7 @@ const booking_reducer = (state, action) => {
     return {
       ...state,
       lastTableBooked: {
-        ...data,
+        ...values,
         msg: `Your Booked on ${mo}-${dt}-${yr} at ${stdTime}`,
       },
       userReservations: [...updatedReservations],
@@ -108,20 +97,6 @@ const booking_reducer = (state, action) => {
     }
   }
 
-  if (action.type === SETUP_BOOKING_BEGIN) {
-    return { ...state, loading: true, }
-  }
-
-
-  if (action.type === CLEAR_MESSAGE) {
-    return {
-      ...state,
-      response: {
-        type: '',
-        msg: '',
-      },
-    }
-  }
 
   throw new Error(`No Matching "${action.type}" - action type`)
 }
