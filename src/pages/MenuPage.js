@@ -7,9 +7,9 @@ import menu_items from '../constants/menu-items'
 const MenuPage = () => {
   return (
     <>
-      <Specials showMenu menu_items={menu_items}/>
-      <About/>
-      <Testimonials/>
+      <Specials showMenu menu_items={menu_items} />
+      <About />
+      <Testimonials />
     </>
   )
 }

@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <Specials menu_items={menu_items}/>
+      <Specials menu_items={menu_items} />
       <Testimonials />
       <About />
     </>

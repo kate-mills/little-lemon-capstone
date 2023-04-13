@@ -1,7 +1,7 @@
 import logo from '../../assets/footer-logo.svg'
 import Block from '../Block'
 import styles from './index.module.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { websiteLinks, socialLinks } from '../../constants/links'
 
 const Footer = () => {
@@ -9,12 +9,9 @@ const Footer = () => {
     <Block bgColor={'var(--clr-highlight)'}>
       <footer className={styles.footer}>
         <div className={styles.box}>
-    <Link to="/">
-          <img
-            src={logo}
-            alt="Little Lemon Footer Logo"
-          />
-    </Link>
+          <Link to="/">
+            <img src={logo} alt="Little Lemon Footer Logo" />
+          </Link>
         </div>
         <div className={styles.box}>
           <h5>Navigation</h5>

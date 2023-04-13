@@ -10,7 +10,9 @@ const Testimonial = ({
 }) => {
   return (
     <div className={styles.testimonial}>
-      <div className={styles.rating}><Stars rating={rating}/> </div>
+      <div className={styles.rating}>
+        <Stars rating={rating} />{' '}
+      </div>
 
       <div className={styles.customer}>
         <img className={styles.customer_img} src={image} alt={imageAlt} />
@@ -24,4 +26,3 @@ const Testimonial = ({
 }
 
 export default Testimonial
-

@@ -37,14 +37,13 @@ test('BookingsForm component can be submitted by the user', async () => {
   const guestInput = screen.getByLabelText(/Number Of Guests/i)
   const occasionInput = screen.getByLabelText(/Occasion/i)
 
-
   expect(submitButton).toHaveAttribute('disabled')
 
   await act(async () => {
     fireEvent.change(dateInput, { target: { value: initDateTimes.start.iso } })
     fireEvent.change(timeInput, { target: { value: availableTimes[0] } })
     fireEvent.change(guestInput, { target: { value: 3 } })
-    fireEvent.change(occasionInput, { target: { value: "No Occasion" } })
+    fireEvent.change(occasionInput, { target: { value: 'No Occasion' } })
   })
 
   expect(submitButton).not.toHaveAttribute('disabled')

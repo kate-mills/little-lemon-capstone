@@ -1,6 +1,6 @@
 import Block from '../Block'
 import Logo from './Logo'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { websiteLinks } from '../../constants/links'
 import styles from './index.module.css'
@@ -28,4 +28,4 @@ const NavigationBar = () => {
   )
 }
 
-export default NavigationBar 
+export default NavigationBar

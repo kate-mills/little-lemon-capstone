@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 import Block from '../Block'
 import styles from './index.module.css'
 import LittleLemonChicago from '../LittleLemonChicago'
@@ -6,10 +6,7 @@ import LittleLemonChicago from '../LittleLemonChicago'
 import imgSrc from '../../assets/book.png'
 import BookingsForm from './Form'
 
-
 const BookATable = () => {
-  
-
   return (
     <Block bgColor={'var(--clr-primary-1)'}>
       <article data-testid="book-a-table" className={styles.bookings}>

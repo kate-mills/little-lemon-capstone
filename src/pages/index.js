@@ -15,5 +15,5 @@ export {
   ConfirmedBookingPage,
   OrderOnlinePage,
   LoginPage,
-  ErrorPage
+  ErrorPage,
 }

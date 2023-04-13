@@ -5,7 +5,7 @@ import hero from '../../assets/hero.png'
 
 import styles from './index.module.css'
 
-const Hero = ({bgColor='var(--clr-primary-1)'}) => {
+const Hero = ({ bgColor = 'var(--clr-primary-1)' }) => {
   return (
     <Block bgColor={bgColor}>
       <article id={styles.hero}>

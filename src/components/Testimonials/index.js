@@ -4,7 +4,7 @@ import Block from '../Block'
 import styles from './index.module.css'
 import reviews from '../../constants/customer-reviews'
 
-const Testimonials = ({bgColor="#f8f2ec"}) => {
+const Testimonials = ({ bgColor = '#f8f2ec' }) => {
   return (
     <Block bgColor={bgColor}>
       <article id={styles.testimonials}>
@@ -15,7 +15,6 @@ const Testimonials = ({bgColor="#f8f2ec"}) => {
           {reviews.map(review => {
             return <Testimonial key={review.id} {...review} />
           })}
-
         </div>
       </article>
     </Block>

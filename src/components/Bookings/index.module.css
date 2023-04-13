@@ -18,12 +18,14 @@
 .success {
   color: var(--clr-secondary-1);
 }
-.msg{ color: var(--white); }
-.error{
+.msg {
+  color: var(--white);
+}
+.error {
   color: var(--clr-secondary-1);
 }
 
-.userReservations{
+.userReservations {
   display: flex;
   justify-content: space-between;
   color: var(--white);

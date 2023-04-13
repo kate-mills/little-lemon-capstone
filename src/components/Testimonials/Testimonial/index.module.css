@@ -13,15 +13,14 @@
   padding-inline: 17px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between
+  justify-content: space-between;
 }
-.customer{
+.customer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
-.customer_name{
+.customer_name {
   width: 60%;
-
 }

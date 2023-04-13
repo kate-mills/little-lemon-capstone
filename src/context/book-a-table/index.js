@@ -35,10 +35,15 @@ const initialState = {
   isLoading: false,
   lastTableBooked: getLastBooked(),
   response: { type: '', msg: '' },
-  formData: { resDate: initDateTimes.start.iso, resTime: '', guests: '', occasion: '' },
+  formData: {
+    resDate: initDateTimes.start.iso,
+    resTime: '',
+    guests: '',
+    occasion: '',
+  },
   userReservations: getUserReservations(),
   availableTimes: [...initDateTimes.initTimes],
-  initDateTimes: {...initDateTimes},
+  initDateTimes: { ...initDateTimes },
 }
 
 const BookingContext = createContext()

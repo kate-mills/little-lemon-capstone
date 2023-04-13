@@ -3,7 +3,7 @@ import Block from '../Block'
 import brothers from '../../assets/about-chefs-mario-and-adrian.png'
 import styles from './index.module.css'
 
-const About = ({bgColor="#36433E"}) => {
+const About = ({ bgColor = '#36433E' }) => {
   return (
     <Block bgColor={bgColor}>
       <article id={styles.about}>

@@ -21,7 +21,7 @@
   background: var(--clr-primary-1);
   border-color: var(--clr-highlight);
 }
-.btn__link:focus-visible{
+.btn__link:focus-visible {
   color: var(--clr-highlight);
   background: var(--clr-primary-1);
   border-color: transparent;

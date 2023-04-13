@@ -5,9 +5,9 @@ export const websiteLinks = [
   { title: 'Book a table', href: '/booking' },
   { title: 'Order online', href: '/order-online' },
   { title: 'Login', href: '/login' },
-];
+]
 
 export const socialLinks = [
   { title: '@instagram', href: 'https://www.instagram.com' },
   { title: '@facebook', href: 'https://www.facebook.com' },
-];
+]

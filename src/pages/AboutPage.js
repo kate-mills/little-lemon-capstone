@@ -6,9 +6,9 @@ import menu_items from '../constants/weekly-specials'
 const AboutPage = () => {
   return (
     <>
-      <About/>
-      <Specials menu_items={menu_items}/>
-      <Testimonials/>
+      <About />
+      <Specials menu_items={menu_items} />
+      <Testimonials />
     </>
   )
 }
