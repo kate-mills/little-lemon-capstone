@@ -3,8 +3,8 @@ export const websiteLinks = [
   { title: 'About', href: '/about' },
   { title: 'Menu', href: '/menu' },
   { title: 'Book a table', href: '/booking' },
-  { title: 'Order online', href: '/order-online' },
-  { title: 'Login', href: '/login' },
+  //{ title: 'Order online', href: '/order-online' },
+  //{ title: 'Login', href: '/login' },
 ]
 
 export const socialLinks = [
