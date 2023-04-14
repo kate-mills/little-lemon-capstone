@@ -1,9 +1,12 @@
 import { fetchAPI } from '../api'
 
-const [yr, mo, dt] = new Date().toJSON().split('T')[0].split('-')
-const todayString = new Date(`${yr}-${mo}-${dt}`)
+const d = new Date()
+const dt = d.getDate()
+const mo = d.getMonth() + 1
+const yr = d.getFullYear()
 
 const createEventDate = (days_from_today = 0) => {
+  const todayString = new Date(`${yr}-${mo}-${dt}`)
   let [eventDate] = new Date(
     todayString.setDate(Number(dt) + Number(days_from_today))
   )
@@ -17,13 +20,13 @@ const isoToDisplay = iso => {
   return !!dt ? `${mo}/${dt}/${yr}` : ``
 }
 
-const startIso = createEventDate()
-const endIso = createEventDate(14)
+const startIso = createEventDate(1)
+const endIso = createEventDate(60)
 
 const initDateTimes = {
   start: {
     iso: startIso,
-    display: isoToDisplay(startIso),
+    display: `${mo}/${dt}/${yr}`,
   },
   end: {
     iso: endIso,
@@ -32,4 +35,4 @@ const initDateTimes = {
   initTimes: [...fetchAPI(new Date(startIso))],
 }
 
-export { initDateTimes }
+export { isoToDisplay, initDateTimes }

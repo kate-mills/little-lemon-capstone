@@ -27,8 +27,9 @@ const BookingForm = props => {
     },
     validationSchema: Yup.object().shape({
       resDate: Yup.date()
-        .min(start.iso, `Date can not be before ${start.display}`)
-        .max(end.iso, `Date can not be after ${end.display}`)
+        .default(start.display)
+        .min(start.display, `Not booking before ${start.display}`)
+        .max(end.display, `Not booking after ${end.display}`)
         .required('Date is required'),
       resTime: Yup.string()
         .oneOf([...availableTimes], 'Invalid Booking Time')
@@ -78,8 +79,8 @@ const BookingForm = props => {
             id="resDate"
             name="resDate"
             type="date"
-            min={start.iso}
-            max={end.iso}
+            min={start.display}
+            max={end.display}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.resDate}
