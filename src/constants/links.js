@@ -3,11 +3,9 @@ export const websiteLinks = [
   { title: 'About', href: '/about' },
   { title: 'Menu', href: '/menu' },
   { title: 'Book a table', href: '/booking' },
-  //{ title: 'Order online', href: '/order-online' },
-  //{ title: 'Login', href: '/login' },
 ]
 
 export const socialLinks = [
-  { title: '@instagram', href: 'https://www.instagram.com' },
-  { title: '@facebook', href: 'https://www.facebook.com' },
+  { title: '@linkedin', href: 'https://www.linkedin.com/in/kate-mills-napa' },
+  { title: '@facebook', href: 'https://www.facebook.com/katemillscoder' },
 ]
